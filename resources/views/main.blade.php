@@ -121,7 +121,7 @@
                                                 </div>
 
                                                 <div class="login-form text-center mb-50">
-                                                    <form action="#!">
+                                                    <form action="{{url('contact')}}">
                                                         <div class="form-item">
                                                             <input type="email" placeholder="User Name">
                                                         </div>
@@ -209,7 +209,7 @@
                                                 </div>
 
                                                 <div class="login-form text-center mb-50">
-                                                    <form action="{{route('login')}}" method="post">
+                                                    <form action="" method="post">
                                                         <div class="form-item">
                                                             <input type="email" placeholder="example@gmail.com"name='username' >
                                                         </div>
@@ -272,22 +272,22 @@
                                     <div class="menu-item-list ul-li clearfix">
                                         <ul>
                                             <li class="menu-item-has-children active">
-                                                <a href="index.php">home</a>
+                                                <a href="{{url('/')}} ">home</a>
 
                                             </li>
                                             <li class="menu-item-has-children">
-                                                <a href="group-listing.php">groups</a>
+                                                <a href="{{url('groups')}}">groups</a>
 
                                             </li>
                                             <li class="menu-item-has-children">
-                                                <a href="#">blogs</a>
+                                                <a href="{{url('blogs')}}">blogs</a>
 
                                             </li>
                                             <li>
-                                                <a href="#">best deals</a>
+                                                <a href="{{url('bestdeals')}}">best deals</a>
                                             </li>
                                             <li class="menu-item-has-children">
-                                                <a href="contact.php">contact</a>
+                                                <a href="{{url('contact')}}">contact</a>
 
                                             </li>
                                         </ul>
@@ -542,7 +542,8 @@
                                         </div>
 
                                         <div class="login-form text-center mb-50">
-                                            <form action="{{route('login')}}" method='post'>
+                                            <form action="
+                                        " method='post'>
                                                 <div class="form-item">
                                                     <input type="email" placeholder="example@gmail.com"   name='username'>
                                                 </div>

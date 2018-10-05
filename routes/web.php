@@ -15,7 +15,20 @@ Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+Route::get('groups', function () {
+    return view('group-listing');
+});
+
+Route::get('blogs', function () {
+    return view('index');
+});
+Route::get('bestdeals', function () {
+    return view('index');
+});
+Route::get('contact', function () {
+    return view('contact');
+});
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 

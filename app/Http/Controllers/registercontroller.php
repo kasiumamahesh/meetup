@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator
 
 class registercontroller extends Controller
 {
@@ -20,12 +21,15 @@ class registercontroller extends Controller
             
 
         ]);
+        $message="you succesfully regiester and login  with  your credentials";
 
     if ($validator->fails()) {
+
          return response()->json(["info"=>"registration failed"]);
         }
+        Session::put('mes', $message);
 
-
+     return veiw('index');
 
 
 

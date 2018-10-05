@@ -15,7 +15,7 @@
                         <div id="cm-fieldsets">
                             <fieldset class="cm-current">
                                 <label>What's your new Group hometown?</label>
-                                <select class="form-control">
+                                <select class="form-control" name='city'>
                                     <option selected="">Hyderabad</option>
                                     <option value="1">Mumbai</option>
                                     <option value="2">Chennai</option>
@@ -24,7 +24,7 @@
                             </fieldset>
                             <fieldset class="next">
                                 <label>What will your Group be about?</label>
-                                <select class="form-control" multiple>
+                                <select class="form-control" name="cat" multiple>
                                     <option selected="">Arts</option>
                                     <option value="1">Book Clubs</option>
                                     <option value="2">Career & Business</option>
@@ -34,7 +34,7 @@
                             </fieldset>
                             <fieldset class="next">
                                 <label>What will your Group name be?</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name='gname'>
                                 <label>Describe who should join, and what your Group will do.</label>
                                 <textarea class="required"></textarea>
                             </fieldset>

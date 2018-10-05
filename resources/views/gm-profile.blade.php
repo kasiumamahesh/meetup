@@ -1,4 +1,5 @@
-<?php include("header.php"); ?>
+@extends('main')
+@section('content')
 
 
 <section id="" class="sec-ptb-20 bg-gray-light g-review clearfix">
@@ -92,4 +93,5 @@
 </section>
 
 
-<?php include("footer.php"); ?>
+
+@endsection

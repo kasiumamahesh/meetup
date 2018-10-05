@@ -1,5 +1,5 @@
-<?php include("header.php"); ?>
-
+@extends('main')
+@section('content')
 
 		<!-- breadcrumb-section - start
 		================================================== -->
@@ -69,7 +69,7 @@
 									</li>
                                     <li>
 										<span class="title">Location</span>
-										<select id="event-category-select">
+										<select id="event-category-select1">
 											<option selected="">Hyderabad</option>
 											<option value="1">Mumbai</option>
 											<option value="2">Chennai</option>
@@ -295,4 +295,5 @@
 		================================================== -->
 
 
-<?php include("footer.php"); ?>
+
+@endsection

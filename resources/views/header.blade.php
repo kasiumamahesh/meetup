@@ -121,7 +121,7 @@
                                                 </div>
 
                                                 <div class="login-form text-center mb-50">
-                                                    <form action="#!">
+                                                    <form action="{{url('contact')}}">
                                                         <div class="form-item">
                                                             <input type="email" placeholder="User Name">
                                                         </div>
