@@ -1,5 +1,5 @@
-<?php include("header.php"); ?>
-
+@extends('main')
+@section('content')
 
 <section id="" class="edit-profile sec-ptb-20 bg-gray-light g-review clearfix">
     <div class="container">
@@ -383,4 +383,4 @@
 </section>
 
 
-<?php include("footer.php"); ?>
+@endsection

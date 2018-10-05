@@ -1,4 +1,5 @@
-<?php include("header.php"); ?>
+@extends('main')
+@section('content')
 
 
 
@@ -483,4 +484,4 @@
 		================================================== -->
 
 
-<?php include("footer.php"); ?>
+@endsection

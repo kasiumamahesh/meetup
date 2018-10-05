@@ -1,4 +1,5 @@
-<?php include("header.php"); ?>
+@extends('main')
+@section('content')
 
 
 		<!-- event-details-section - start
@@ -76,6 +77,4 @@
 		</section>
 		<!-- event-details-section - end
 		================================================== -->
-
-
-<?php include("footer.php"); ?>
+@endsection

@@ -1,5 +1,5 @@
-<?php include("header.php"); ?>
-
+@extends('main')
+@section('content')
 
     <section class="create-meetup sec-ptb-50 bg-gray-light clearfix">
         <div class="container">
@@ -57,4 +57,4 @@
     </section>
 
 
-<?php include("footer.php"); ?>
+@endsection

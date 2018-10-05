@@ -1,4 +1,5 @@
-<?php include("header.php"); ?>
+@extends('main')
+@section('content')
 <!-- breadcrumb-section - start
 		================================================== -->
 		<section id="breadcrumb-section" class="breadcrumb-section clearfix">
@@ -493,4 +494,4 @@
 
 
 
-<?php include("footer.php"); ?>
+@endsection

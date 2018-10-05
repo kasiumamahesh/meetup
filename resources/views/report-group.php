@@ -1,4 +1,5 @@
-<?php include("header.php"); ?>
+@extends('main')
+@section('content')
 
 
 <section id="" class="report-reason sec-ptb-100 clearfix">
@@ -56,4 +57,4 @@
 </section>
 
 
-<?php include("footer.php"); ?>
+@endsection
