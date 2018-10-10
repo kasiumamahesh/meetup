@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator
+use Illuminate\Support\Facades\Hash;
+use Validator;
+use Illuminate\Support\Facades\Auth;
+
+use  App\User;
+
 
 class registercontroller extends Controller
 {
@@ -12,24 +17,43 @@ class registercontroller extends Controller
     public function register(Request $request){
 
 
-        $validator = Validator::make($request->all(), [
-            'fname' => 'required',
-             //'mobile' => 'required',
-             'email' => 'required|unique:mov_dt_regtab,u_email',
-            ' password' => 'required|min:6'  ,
-             'password_conformation' => 'required|same:password',
-            
-
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'username' => 'required',
+        //      //'mobile' => 'required',
+        //      'email' => 'required|unique:users,email',
+        //     'password' => 'required|min:6'  ,
+        //      'confirm' => 'required|same:password',
+        //     ]);
         $message="you succesfully regiester and login  with  your credentials";
 
-    if ($validator->fails()) {
+    // if ($validator->fails()) {
 
-         return response()->json(["info"=>"registration failed"]);
-        }
-        Session::put('mes', $message);
+    //      return response()->json(["info"=>"registration failed",$validator->errors()]);
+    //     }
+        //Session::put('mes', $message);
+        $pwd = Hash::make($request->password);
+        $user=new User;
 
-     return veiw('index');
+       $user->name=$request->username;
+       $user->email=$request->email;
+       $user->password=$pwd;
+       $user->save();
+
+          $arr=["email"=>$user->email,"password"=>$user->password];
+
+    
+   //Auth::login($user);
+          if(Auth::attempt($arr))
+      
+{
+
+    echo "sucess";
+
+}
+
+
+      return redirect('/userpage');
+      
 
 
 
