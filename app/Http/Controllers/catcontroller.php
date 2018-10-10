@@ -16,7 +16,7 @@ class catcontroller extends Controller
            ]);
 
        	if ($validator->fails()){
-
+c
 
        		return view('index');
 

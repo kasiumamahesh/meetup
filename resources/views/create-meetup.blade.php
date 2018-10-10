@@ -5,8 +5,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <form id="cm-tabs-form" action="{{url('grpcreate')}}" method="post">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <form id="cm-tabs-form" action="paid-services.php" method="">
                         <ul id="cm-section-tabs">
                             <li class="cm-current active"><span>1.</span>Location</li>
                             <li><span>2.</span> Topic</li>
@@ -17,7 +16,7 @@
                             <fieldset class="cm-current">
                                 <label>What's your new Group hometown?</label>
                                 <select class="form-control" name='city'>
-                                    <option selected="" value="4">Hyderabad</option>
+                                    <option selected="">Hyderabad</option>
                                     <option value="1">Mumbai</option>
                                     <option value="2">Chennai</option>
                                     <option value="3">Bangalore</option>
@@ -25,7 +24,7 @@
                             </fieldset>
                             <fieldset class="next">
                                 <label>What will your Group be about?</label>
-                                <select class="form-control" name="cat[]" multiple>
+                                <select class="form-control" name="cat" multiple>
                                     <option selected="">Arts</option>
                                     <option value="1">Book Clubs</option>
                                     <option value="2">Career & Business</option>
@@ -49,7 +48,7 @@
                                 </ul>
                             </fieldset>
                             <a class="btn" id="cm-next-tab">Next Section ▷</a>
-                           <input type="submit" class="btn" value="Agree & Continue">
+                            <a href="paid-services.php"><input type="submit" class="btn" value="Agree & Continue"></a>
                         </div>
                     </form>
                 </div>
@@ -58,7 +57,4 @@
     </section>
 
 
-@endsection
-@section('script')
-<script src="assets/js/create-meetup.js"></script>
 @endsection

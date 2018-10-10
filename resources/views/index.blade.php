@@ -258,21 +258,19 @@
                         <!-- section-title - end -->
                     </div>
                 </div>
-                 
+
 				<div class="services-list">
 					<ul>
-						@foreach($numcatgs as $numcatg)
 						<li>
-							<a href="{{url('/list/'.$numcatg->id)}}">
+							<a href="group-listing.php">
 								<span class="icon">
 									<i class="fas fa-female"></i>
 								</span>
-								<strong class="title-text"></strong>{{$numcatg->cat_name}}
-								<small class="sub-title"> {{$numcatg->gcount?$numcatg->gcount:0}} groups</small>
+								<strong class="title-text">fashion & Beauty</strong>
+								<small class="sub-title">more than 200 groups</small>
 							</a>
 						</li>
-						@endforeach
-						<!-- <li>
+						<li>
 							<a href="group-listing.php">
 								<span class="icon">
 									<i class="fas fa-car"></i>
@@ -289,7 +287,7 @@
 								<strong class="title-text">Reality</strong>
 								<small class="sub-title">more than 200 groups</small>
 							</a>
-						</li> -->
+						</li>
 
 <!--
 						<li>
@@ -592,7 +590,6 @@
 						<div class="row">
 
 							<!-- event-item - start -->
-							@foreach($events as $event)
 							<div class="col-lg-4 col-md-6 col-sm-12">
 								<div class="event-item2 clearfix">
 
@@ -602,7 +599,7 @@
 											<span class="date">26</span>
 											<small class="month">june</small>
 										</div>
-										<img src="assets/images/event/5.event-grid.jpg" alt="Image_not_f$ound">
+										<img src="assets/images/event/5.event-grid.jpg" alt="Image_not_found">
 									</div>
 									<!-- event-image - end -->
 
@@ -610,7 +607,7 @@
 									<div class="event-content">
 										<div class="event-title mb-15">
 											<h3 class="title">
-												{{$event->event_name}}
+												Mumbai Food truck Festival 2018
 											</h3>
 											<span class="ticket-price yellow-color">Tickets from Rs. 52,000</span>
 										</div>
@@ -626,7 +623,7 @@
 													<span class="icon">
 														<i class="fas fa-map-marker-alt"></i>
 													</span>
-													{{$event->location}}
+													Manhattan, New York
 												</li>
                                                 <li>
 													<span class="icon">
@@ -644,11 +641,114 @@
 
 								</div>
 							</div>
-							@endforeach
 							<!-- event-item - end -->
 
 							<!-- event-item - start -->
-							
+							<div class="col-lg-4 col-md-6 col-sm-12">
+								<div class="event-item2 clearfix">
+
+									<!-- event-image - start -->
+									<div class="event-image">
+										<div class="post-date">
+											<span class="date">26</span>
+											<small class="month">june</small>
+										</div>
+										<img src="assets/images/event/2.event-grid.jpg" alt="Image_not_found">
+									</div>
+									<!-- event-image - end -->
+
+									<!-- event-content - start -->
+									<div class="event-content">
+										<div class="event-title mb-15">
+											<h3 class="title">
+												Mumbai Food truck Festival 2018
+											</h3>
+											<span class="ticket-price yellow-color">Tickets from Rs. 52,000</span>
+										</div>
+										<div class="event-post-meta ul-li-block mb-30">
+											<ul>
+												<li>
+													<span class="icon">
+														<i class="far fa-clock"></i>
+													</span>
+													Start 20:00pm - 22:00pm
+												</li>
+												<li>
+													<span class="icon">
+														<i class="fas fa-map-marker-alt"></i>
+													</span>
+													Manhattan, New York
+												</li>
+                                                <li>
+													<span class="icon">
+														<i class="fas fa-user"></i>
+													</span>
+													Hosted by <span class="black-color">Mr. Rajesh</span>
+												</li>
+											</ul>
+										</div>
+										<a href="event-details.php" class="tickets-details-btn">
+											tickets & details
+										</a>
+									</div>
+									<!-- event-content - end -->
+
+								</div>
+							</div>
+							<!-- event-item - end -->
+
+							<!-- event-item - start -->
+							<div class="col-lg-4 col-md-6 col-sm-12">
+								<div class="event-item2 clearfix">
+
+									<!-- event-image - start -->
+									<div class="event-image">
+										<div class="post-date">
+											<span class="date">26</span>
+											<small class="month">june</small>
+										</div>
+										<img src="assets/images/event/3.event-grid.jpg" alt="Image_not_found">
+									</div>
+									<!-- event-image - end -->
+
+									<!-- event-content - start -->
+									<div class="event-content">
+										<div class="event-title mb-15">
+											<h3 class="title">
+												Mumbai Food truck Festival 2018
+											</h3>
+											<span class="ticket-price yellow-color">Tickets from Rs. 52,000</span>
+										</div>
+										<div class="event-post-meta ul-li-block mb-30">
+											<ul>
+												<li>
+													<span class="icon">
+														<i class="far fa-clock"></i>
+													</span>
+													Start 20:00pm - 22:00pm
+												</li>
+												<li>
+													<span class="icon">
+														<i class="fas fa-map-marker-alt"></i>
+													</span>
+													Manhattan, New York
+												</li>
+                                                <li>
+													<span class="icon">
+														<i class="fas fa-user"></i>
+													</span>
+													Hosted by <span class="black-color">Mr. Rajesh</span>
+												</li>
+											</ul>
+										</div>
+										<a href="event-details.php" class="tickets-details-btn">
+											tickets & details
+										</a>
+									</div>
+									<!-- event-content - end -->
+
+								</div>
+							</div>
 							<!-- event-item - end -->
 
 							<div class="col-lg-12 col-md-12 col-sm-12">
@@ -1054,7 +1154,6 @@
 						<div class="row">
 
 							<!-- event-item - start -->
-							@foreach($events as $event)
 							<div class="col-lg-4 col-md-6 col-sm-12">
 								<div class="event-item2 clearfix">
 
@@ -1072,7 +1171,7 @@
 									<div class="event-content">
 										<div class="event-title mb-15">
 											<h3 class="title">
-												{{$event->event_name}}
+												Mumbai Food truck Festival 2018
 											</h3>
 											<span class="ticket-price yellow-color">Tickets from Rs. 52,000</span>
 										</div>
@@ -1088,7 +1187,7 @@
 													<span class="icon">
 														<i class="fas fa-map-marker-alt"></i>
 													</span>
-													{{$event->location}}
+													Manhattan, New York
 												</li>
                                                 <li>
 													<span class="icon">
@@ -1106,15 +1205,110 @@
 
 								</div>
 							</div>
-							@endforeach
 							<!-- event-item - end -->
 
 							<!-- event-item - start -->
-							<!-- <!-- / --> -->
+							<div class="col-lg-4 col-md-6 col-sm-12">
+								<div class="event-item2 clearfix">
+
+									<!-- event-image - start -->
+									<div class="event-image">
+										<div class="post-date">
+											<span class="date">26</span>
+											<small class="month">june</small>
+										</div>
+										<img src="assets/images/event/4.event-grid.jpg" alt="Image_not_found">
+									</div>
+									<!-- event-image - end -->
+
+									<!-- event-content - start -->
+									<div class="event-content">
+										<div class="event-title mb-15">
+											<h3 class="title">
+												Mumbai Food truck Festival 2018
+											</h3>
+											<span class="ticket-price yellow-color">Tickets from Rs. 52,000</span>
+										</div>
+										<div class="event-post-meta ul-li-block mb-30">
+											<ul>
+												<li>
+													<span class="icon">
+														<i class="far fa-clock"></i>
+													</span>
+													Start 20:00pm - 22:00pm
+												</li>
+												<li>
+													<span class="icon">
+														<i class="fas fa-map-marker-alt"></i>
+													</span>
+													Manhattan, New York
+												</li>
+                                                <li>
+													<span class="icon">
+														<i class="fas fa-user"></i>
+													</span>
+													Hosted by <span class="black-color">Mr. Rajesh</span>
+												</li>
+											</ul>
+										</div>
+										<a href="event-details.php" class="tickets-details-btn">
+											tickets & details
+										</a>
+									</div>
+									<!-- event-content - end -->
+
+								</div>
+							</div>
 							<!-- event-item - end -->
 
 							<!-- event-item - start -->
-							
+							<div class="col-lg-4 col-md-6 col-sm-12">
+								<div class="event-item2 clearfix">
+
+									<!-- event-image - start -->
+									<div class="event-image">
+										<div class="post-date">
+											<span class="date">26</span>
+											<small class="month">june</small>
+										</div>
+										<img src="assets/images/event/5.event-grid.jpg" alt="Image_not_found">
+									</div>
+									<!-- event-image - end -->
+
+									<!-- event-content - start -->
+									<div class="event-content">
+										<div class="event-title mb-15">
+											<h3 class="title">
+												Mumbai Food truck Festival 2018
+											</h3>
+											<span class="ticket-price yellow-color">Tickets from Rs. 52,000</span>
+										</div>
+										<div class="event-post-meta ul-li-block mb-30">
+											<ul>
+												<li>
+													<span class="icon">
+														<i class="far fa-clock"></i>
+													</span>
+													Start 20:00pm - 22:00pm
+												</li>
+												<li>
+													<span class="icon">
+														<i class="fas fa-map-marker-alt"></i>
+													</span>
+													Manhattan, New York
+												</li>
+                                                <li>
+													<span class="icon">
+														<i class="fas fa-user"></i>
+													</span>
+													Hosted by <span class="black-color">Mr. Rajesh</span>
+												</li>
+											</ul>
+										</div>
+										<a href="event-details.php" class="tickets-details-btn">
+											tickets & details
+										</a>
+									</div>
 									<!-- event-content - end -->
 
 								</div>

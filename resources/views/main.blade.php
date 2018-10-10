@@ -4,40 +4,37 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <title>Group Us</title>
-    <!-- <script https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js>
-    </script> -->
-    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}">
+    <link rel="shortcut icon" href="assets/images/favicon.png">
 
     <!-- fraimwork - css include -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
     <!-- icon css include -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/fontawesome-all.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/flaticon.css')}}">
+    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome-all.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/flaticon.css">
 
     <!-- carousel css include -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/slick.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/slick-theme.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/owl.theme.default.min.css">
 
     <!-- others css include -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/magnific-popup.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery.mCustomScrollbar.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/calendar.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/lightcase.css')}}">
+    <link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/calendar.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/lightcase.css">
 
-    <link id="color_theme" rel="stylesheet" type="text/css" href="{{asset('assets/css/colors/default.css')}}">
+    <link id="color_theme" rel="stylesheet" type="text/css" href="assets/css/colors/default.css">
 
     <!-- custom css include -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 
 </head>
@@ -96,7 +93,7 @@
                                         <i class="fas fa-user-plus"></i>
                                         SignUp
                                     </a>
-                                    <div id="register-modal" class="reglog-modal-wrapper register-modal mfp-hide clearfix" style="background-image: {{asset('assets/images/login-modal-bg.jpg')}};">
+                                    <div id="register-modal" class="reglog-modal-wrapper register-modal mfp-hide clearfix" style="background-image: url(assets/images/login-modal-bg.jpg);">
                                         <div class="overlay-black clearfix">
 
                                             <!-- leftside-content - start -->
@@ -124,21 +121,26 @@
                                                 </div>
 
                                                 <div class="login-form text-center mb-50">
-                                                    <form action="{{url('register')}}" method="post">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <form action="{{url('contact')}}">
                                                         <div class="form-item">
-                                                            <input type="text" placeholder="User Name" name='username'>
+                                                            <input type="email" placeholder="User Name">
                                                         </div>
                                                         <div class="form-item">
-                                                            <input type="password" placeholder="Password" name='password'>
+                                                            <input type="password" placeholder="Password">
                                                         </div>
                                                         <div class="form-item">
-                                                            <input type="password" placeholder="Repeat Password" name='confirm'>
+                                                            <input type="email" placeholder="Repeat Password">
                                                         </div>
                                                         <div class="form-item">
-                                                            <input type="email" placeholder="Email Address" name='email'>
+                                                            <input type="password" placeholder="Email Address">
                                                         </div>
-                                                        
+                                                        <div class="human-verification text-left">
+                                                            <input type="checkbox" id="imnotarobot">
+                                                            <label for="imnotarobot">I'm not a robot</label>
+                                                            <span class="verification-image">
+                                                                <img src="assets/images/iamnotrobot.png" alt="Image_not_found">
+                                                            </span>
+                                                        </div>
                                                         <button type="submit" class="login-btn">Register Now</button>
                                                     </form>
                                                 </div>
@@ -165,7 +167,7 @@
                                         <i class="fas fa-sign-in-alt"></i>
                                         Login
                                     </a>
-                                    <div id="login-modal" class="reglog-modal-wrapper mfp-hide clearfix" style="background-image: {{asset('assets/images/login-modal-bg.jpg')}};">
+                                    <div id="login-modal" class="reglog-modal-wrapper mfp-hide clearfix" style="background-image: url(assets/images/login-modal-bg.jpg);">
                                         <div class="overlay-black clearfix">
 
                                             <!-- leftside-content - start -->
@@ -207,15 +209,14 @@
                                                 </div>
 
                                                 <div class="login-form text-center mb-50">
-                                                    <form  id='form' action="{{url('logins')}}"  method="post">
+                                                    <form action="" method="post">
                                                         <div class="form-item">
-                                                            <input type="email" placeholder="example@gmail.com"name='email' >
+                                                            <input type="email" placeholder="example@gmail.com"name='username' >
                                                         </div>
                                                         <div class="form-item">
                                                             <input type="password" placeholder="Password" name='password'>
                                                         </div>
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <button id="button1" type="submit" class="login-btn">login now</button>
+                                                        <button type="submit" class="login-btn">login now</button>
                                                     </form>
                                                 </div>
 
@@ -351,7 +352,7 @@
         <div class="container">
             <div class="logo-area float-left">
                 <a href="index-1.html">
-                    <img src="{{asset('assets/images/0.site-logo.png')}}" alt="logo_not_found">
+                    <img src="assets/images/0.site-logo.png" alt="logo_not_found">
                 </a>
             </div>
 
@@ -427,7 +428,7 @@
                             <a href="#alt-register-modal" class="register-modal-btn">
                                 Register
                             </a>
-                            <div id="alt-register-modal" class="reglog-modal-wrapper register-modal mfp-hide clearfix" style="background-image: {{asset('assets/images/login-modal-bg.jpg')}};">
+                            <div id="alt-register-modal" class="reglog-modal-wrapper register-modal mfp-hide clearfix" style="background-image: url(assets/images/login-modal-bg.jpg);">
                                 <div class="overlay-black clearfix">
 
                                     <!-- leftside-content - start -->
@@ -457,18 +458,24 @@
                                         <div class="login-form text-center mb-50">
                                             <form action="#!">
                                                 <div class="form-item">
-                                                    <input type="text" placeholder="User Name">
+                                                    <input type="email" placeholder="User Name">
                                                 </div>
                                                 <div class="form-item">
                                                     <input type="password" placeholder="Password">
                                                 </div>
                                                 <div class="form-item">
-                                                    <input type="password" placeholder="Repeat Password">
+                                                    <input type="email" placeholder="Repeat Password">
                                                 </div>
                                                 <div class="form-item">
-                                                    <input type="email" placeholder="Email Address">
+                                                    <input type="password" placeholder="Email Address">
                                                 </div>
-                                                
+                                                <div class="human-verification text-left">
+                                                    <input type="checkbox" id="alt-imnotarobot">
+                                                    <label for="alt-imnotarobot">I'm not a robot</label>
+                                                    <span class="verification-image">
+                                                        <img src="assets/images/iamnotrobot.png" alt="Image_not_found">
+                                                    </span>
+                                                </div>
                                                 <button type="submit" class="login-btn">register now</button>
                                             </form>
                                         </div>
@@ -494,7 +501,7 @@
                             <a href="#alt-login-modal" class="login-modal-btn">
                                 Login
                             </a>
-                            <div id="alt-login-modal" class="reglog-modal-wrapper mfp-hide clearfix" style="background-image: {{asset('assets/images/login-modal-bg.jpg')}};">
+                            <div id="alt-login-modal" class="reglog-modal-wrapper mfp-hide clearfix" style="background-image: url(assets/images/login-modal-bg.jpg);">
                                 <div class="overlay-black clearfix">
 
                                     <!-- leftside-content - start -->
@@ -811,61 +818,43 @@
 
 
         <!-- fraimwork - jquery include -->
-        <script src="{{asset('assets/js/jquery-3.3.1.min.js')}}"></script>
-        <script src="{{asset('assets/js/popper.min.js')}}"></script>
-        <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-         @yield('script')
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
 
-        <!-- <script src="assets/js/create-meetup.js"></script> -->
+        <script src="assets/js/create-meetup.js"></script>
 
         <!-- carousel jquery include -->
-        <script src="{{asset('assets/js/slick.min.js')}}"></script>
-        <script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
+        <script src="assets/js/slick.min.js"></script>
+        <script src="assets/js/owl.carousel.min.js"></script>
 
         <!-- map jquery include -->
-        <script src="{{asset('assets/js/gmap3.min.js')}}"></script>
+        <script src="assets/js/gmap3.min.js"></script>
         <script src="http://maps.google.com/maps/api/js?key=AIzaSyC61_QVqt9LAhwFdlQmsNwi5aUJy9B2SyA"></script>
 
         <!-- calendar jquery include -->
-        <script src="{{asset('assets/js/atc.min.js'}}"></script>
-                ')
+        <script src="assets/js/atc.min.js"></script>
+
         <!-- others jquery include -->
-        <script src="{{asset('assets/js/jquery.magnific-popup.min.js'}}"></script>
-        <script src="{{asset('assets/js/isotope.pkgd.min.js'}}"></script>
-        <script src="{{asset('assets/js/jarallax.min.js'}}"></script>
-        <script src="{{asset('assets/js/jquery.mCustomScrollbar.concat.min.js'}}"></script>
-        <script src="{{asset('assets/js/lightcase.js'}}"></script>
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <script src="assets/js/isotope.pkgd.min.js"></script>
+        <script src="assets/js/jarallax.min.js"></script>
+        <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="assets/js/lightcase.js"></script>
         
         <!-- gallery img loaded - jqury include -->
-        <script src="{{asset('assets/js/imagesloaded.pkgd.min.js'}}"></script>
+        <script src="assets/js/imagesloaded.pkgd.min.js"></script>
 
         <!-- multy count down - jqury include -->
-        <script src="{{asset('assets/js/jquery.countdown.js'}}"></script>
+        <script src="assets/js/jquery.countdown.js"></script>
 
         
 
         <!-- custom jquery include -->
-        <script src="{{asset('assets/js/custom.js'}}"></script>
-<!-- <script type="text/javascript">        
-$("form").submit(function(){
-    alert('form submitted');
+        <script src="assets/js/custom.js"></script>
 
-var data = $("#signup").serialize();
-return true;
-});
 
-</script>
- -->
 
- <!-- <script type="text/javascript">
-$(document).ready(function () {
-
-    $( "#button1" ).click(function() {
-         console.log('ok');
-        $( "#form" ).submit();
-    });
-});
-</script> -->
 
 
     </body>

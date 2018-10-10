@@ -4,7 +4,7 @@
 		<!-- breadcrumb-section - start
 		================================================== -->
 		<section id="breadcrumb-section" class="breadcrumb-section clearfix">
-			<div class="jarallax" style="background-image: {{asset('assets/images/breadcrumb/0.breadcrumb-bg.jpg')}};">
+			<div class="jarallax" style="background-image: url(assets/images/breadcrumb/0.breadcrumb-bg.jpg);">
 				<div class="overlay-black">
 					<div class="container">
 						<div class="row justify-content-center">
@@ -40,7 +40,7 @@
 
 		<!-- event-search-section - start
 		================================================== -->
-		<section id="event-search-section" class="event-search-section clearfix" style="background-image: {{asset('assets/images/special-offer-bg.png')}};">
+		<section id="event-search-section" class="event-search-section clearfix" style="background-image: url(assets/images/special-offer-bg.png);">
 			<div class="container">
 				<div class="row">
 
@@ -72,8 +72,7 @@
 										<select id="event-category-select1">
 											<option selected="">Hyderabad</option>
 											<option value="1">Mumbai</option>
-			
-            								<option value="2">Chennai</option>
+											<option value="2">Chennai</option>
 											<option value="3">Bangalore</option>
 										</select>
 									</li>
@@ -104,25 +103,24 @@
 				<!-- event-expertise-carousel - start -->
 				<div id="" class="event-expertise-carousel">
                     <div class="row">
-                        @foreach($users as $user)
                         <div class="col-md-4">
                             <!-- expertise-item - start -->
                             <div class="item">
-                                <span class="expertise-title">{{$user->group_name}}</span>
+                                <span class="expertise-title">The Entrepreneur Zone</span>
                                 <div class="expertise-item">
                                     <div class="image image-wrapper">
                                         <img src="assets/images/upcomming-events/event-1.jpg" alt="Image_not_found">
                                         <a href="group-details.php" class="plus-effect"></a>
                                     </div>
                                     <div class="content">
-                                        <h3 class="title">{{$user->group_name}}</h3>
-                                        <p>We're <strong>{{$user->mcount}} </strong> TEZians</p>
+                                        <h3 class="title">The Entrepreneur Zone</h3>
+                                        <p>We're <strong>1,985 </strong> TEZians</p>
                                     </div>
                                 </div>
                             </div>
                             <!-- expertise-item - end -->
                         </div>
-                        @endforeach
+                        
                         <div class="col-md-4">
                             <!-- expertise-item - start -->
                             <div class="item">
@@ -270,12 +268,9 @@
                     </div>
                     
                     <div class="row">
-`
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="pagination ul-li clearfix">
-
-                        {{ $users->links('vendor.pagination.default') }}
-                                <!-- <ul style="margin:0px auto;">
+                                <ul style="margin:0px auto;">
                                     <li class="page-item prev-item">
                                         <a class="page-link" href="#">Prev</a>
                                     </li>
@@ -287,7 +282,7 @@
                                     <li class="page-item next-item">
                                         <a class="page-link" href="#">Next</a>
                                     </li>
-                                </ul> -->
+                                </ul>
                             </div>
                         </div>
                     </div>
