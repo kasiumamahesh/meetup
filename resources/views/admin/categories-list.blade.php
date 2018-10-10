@@ -1,6 +1,6 @@
-<?php include('header.php'); ?>
-<?php include('sidebar.php'); ?>
-<?php include('header-1.php'); ?>
+@include('admin.header') 
+@include('admin.sidebar')
+@include('admin.header-1')
 
 <div class="breadcrumbs">
     <div class="col-sm-4">
@@ -14,7 +14,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="index.php">Dashboard</a></li>
+                    <li><a href="{{url('/admin')}}">Dashboard</a></li>
                     <li class="active">Categories List</li>
                 </ol>
             </div>
@@ -42,57 +42,27 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($lists as $list)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Fashion & Beauty</td>
-                                    <td>15-2-2017</td>
+                                    <td>{{$list->id}}</td>
+                                    <td>{{$list->cat_name}}</td>
+                                    <td>{{$list->created_time}}</td>
                                     <td>
-                                        <a href="edit-category.php">
+                                        <a href="{{url('/editcat/'.$list->id)}}">
                                             <button type="button" class="btn btn-sm social btn-primary">
                                                 <i class="fa fa-edit"></i>
                                             </button>
                                         </a>
-                                        <a href="#">
+                                        <a href="{{url('/delcat/'.$list->id)}}">
                                             <button type="button" class="btn btn-sm social btn-danger">
                                                 <i class="fa fa-trash-o"></i>
                                             </button>
                                         </a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Automobile</td>
-                                    <td>18-7-2017</td>
-                                    <td>
-                                        <a href="edit-category.php">
-                                            <button type="button" class="btn btn-sm social btn-primary">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                        </a>
-                                        <a href="#">
-                                            <button type="button" class="btn btn-sm social btn-danger">
-                                                <i class="fa fa-trash-o"></i>
-                                            </button>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Reality</td>
-                                    <td>24-3-2018</td>
-                                    <td>
-                                        <a href="edit-category.php">
-                                            <button type="button" class="btn btn-sm social btn-primary">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                        </a>
-                                        <a href="#">
-                                            <button type="button" class="btn btn-sm social btn-danger">
-                                                <i class="fa fa-trash-o"></i>
-                                            </button>
-                                        </a>
-                                    </td>
-                                </tr>
+                                @endforeach
+                                
+                                
                             </tbody>
                         </table>
                     </div>
@@ -105,4 +75,4 @@
 </div><!-- .content -->
 
 
-<?php include('footer.php'); ?>
+@include('admin.footer')

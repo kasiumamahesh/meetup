@@ -67,5 +67,12 @@ Route::get('/admin', 'admincontroller@index');
 Route::get('/addcat', 'admincontroller@catview' );
 Route::post('/catstore', 'admincontroller@catstore' );
 Route::get('/catlist', 'admincontroller@catlist' );
+Route::post('/catedited', 'admincontroller@catedited' );
+Route::get('/editcat/{id}', 'admincontroller@editcat' );
+Route::get('/delcat/{id}',  'admincontroller@delcat' );
 
+// related to groups in admin panel
+
+Route::get('/glist',  'admingrpcontroller@grouplist' );
+ 
 

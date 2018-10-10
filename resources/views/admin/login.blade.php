@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+@include('admin.header') 
 
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
@@ -34,4 +34,5 @@
         </div>
     </div>
 
-<?php include('footer.php'); ?>
+
+@include('admin.footer')

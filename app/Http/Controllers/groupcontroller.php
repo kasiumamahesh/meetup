@@ -78,13 +78,13 @@ public function groupsearch( ){
 
 
 
-      
+      //getting the groups
 
  $users = DB::table('group_tab')
             ->join('members_tab', 'group_tab.id', '=', 'members_tab.group_id')
              ->select('group_tab.id','group_tab.group_name',DB::raw('count(members_tab.id) as mcount'))
              ->groupBy( 'group_tab.id','group_tab.group_name')->paginate(1);
-
+//getting the events
 $events=DB::table('event_tab')
             ->join('group_tab', 'group_tab.id', '=', 'event_tab.group_id')
             ->join('members_tab', 'group_tab.id', '=', 'members_tab.group_id')

@@ -1,7 +1,6 @@
-<?php include('header.php'); ?>
-<?php include('sidebar.php'); ?>
-<?php include('header-1.php'); ?>
-
+@include('admin.header') 
+@include('admin.sidebar')
+@include('admin.header-1')
 
 <div class="breadcrumbs">
     <div class="col-sm-4">
@@ -32,7 +31,7 @@
                     <div class="stat-icon dib"><i class="ti-user fa-users text-white border-white"></i></div>
                     <div class="stat-content dib">
                         <div class="stat-text text-light">No.of Users</div>
-                        <div class="stat-digit text-white">1,012</div>
+                        <div class="stat-digit text-white">{{$user ?$user:0}} </div>
                     </div>
                 </div>
             </div>
@@ -46,7 +45,7 @@
                     <div class="stat-icon dib"><i class="fa fa-tags text-white border-white"></i></div>
                     <div class="stat-content dib">
                         <div class="stat-text text-light">No.of Categories</div>
-                        <div class="stat-digit text-white">3</div>
+                        <div class="stat-digit text-white">{{$catg ?$catg:0}} </div>
                     </div>
                 </div>
             </div>
@@ -60,7 +59,7 @@
                     <div class="stat-icon dib"><i class="fa fa-users text-white border-white"></i></div>
                     <div class="stat-content dib">
                         <div class="stat-text text-light">No.of Groups</div>
-                        <div class="stat-digit text-white">961</div>
+                        <div class="stat-digit text-white">{{$gp ?$gp:0}} </div>
                     </div>
                 </div>
             </div>
@@ -74,7 +73,7 @@
                     <div class="stat-icon dib"><i class="fa fa-calendar text-white bordewhite"></i></div>
                     <div class="stat-content dib">
                         <div class="stat-text text-light">New Events</div>
-                        <div class="stat-digit text-white">770</div>
+                        <div class="stat-digit text-white">{{$events?$events:0}} </div>
                     </div>
                 </div>
             </div>
@@ -123,4 +122,5 @@
 </div> <!-- .content -->
 
 
-<?php include('footer.php'); ?>
+
+@include('admin.footer')

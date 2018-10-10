@@ -28,14 +28,14 @@ return view('admin.index',["catg"=>$catg,"gp"=>$gp,"user"=>$user,"events"=>$even
 
 }
 
-//category view page
+//add category view page
 public function catview(){
 
    return view('admin.add-category');
 
 }
 
-
+//inserting the category and return back category listpage,
 public function catstore(Request $request){
 
 $userid='123';
@@ -57,6 +57,65 @@ DB::table('cat_tab')->insert(["cat_name"=>$request->catname,"created_by"=>$useri
 return redirect('/catlist');
 }
 
+//category listpage 
+  public function catlist()
+  {
+
+  $lists=DB::table('cat_tab')->orderBY('created_time','desc')->get();
+ // dd($lists);
+
+  return view('admin.categories-list',["lists"=>$lists]);
+
+  }
+
+  //category edit page
+  public function editcat($id)
+  {
+
+      $cat=DB::table('cat_tab')->where('id',$id)->first();
+
+
+  return view('admin.edit-category',["cat"=>$cat]);
+
+  }
+  //category edited and go to category list page
+
+  public function catedited(Request $request)
+  {
+         $validator = Validator::make($request->all(), [
+            'cat' => 'required',
+             
+           ]);
+
+       	if ($validator->fails()){
+
+
+       		return redirect()->back();
+              }
+
+        DB::table('cat_tab')
+            ->where('id', $request->id)
+            ->update(['cat_name' => $request->cat]);
+
+
+
+            return redirect('/catlist');
+
+  }
+
+//category deletepage and go to category page
+
+  public function delcat($id)
+
+  {
+
+     DB::table('cat_tab')
+            ->where('id', $id)
+            ->delete();
+
+
+return redirect('/catlist');
+  }
 
 
 }

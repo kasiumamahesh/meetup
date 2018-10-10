@@ -1,6 +1,6 @@
-<?php include('header.php'); ?>
-<?php include('sidebar.php'); ?>
-<?php include('header-1.php'); ?>
+@include('admin.header') 
+@include('admin.sidebar')
+@include('admin.header-1')
 
 <div class="breadcrumbs">
     <div class="col-sm-4">
@@ -14,7 +14,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="index.php">Dashboard</a></li>
+                    <li><a href="{{url('/admin')}}">Dashboard</a></li>
                     <li class="active">Payments</li>
                 </ol>
             </div>
@@ -109,4 +109,6 @@
 </div><!-- .content -->
 
 
-<?php include('footer.php'); ?>
+
+
+@include('admin.footer')

@@ -1,6 +1,7 @@
-<?php include('header.php'); ?>
-<?php include('sidebar.php'); ?>
-<?php include('header-1.php'); ?>
+@include('admin.header') 
+@include('admin.sidebar')
+@include('admin.header-1')
+
 
 <div class="breadcrumbs">
     <div class="col-sm-4">
@@ -14,7 +15,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="index.php">Dashboard</a></li>
+                    <li><a href="{{url('/admin')}}">Dashboard</a></li>
                     <li class="active">Edit Category</li>
                 </ol>
             </div>
@@ -35,12 +36,14 @@
                         <strong class="card-title">Edit Category</strong>
                     </div>
                     <div class="card-body">
-                        <form action="" method=""> 
+                        <form action="{{url('/catedited')}}" method="post"> 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Category Name</label>
-                                        <input type="text" id="" value="Fashion & Beauty" class="form-control">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="hidden" name="id" value="{{ $cat->id}}">
+                                        <input type="text" id="" name="cat" value="{{ $cat->cat_name}}" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -56,4 +59,5 @@
 </div><!-- .content -->
 
 
-<?php include('footer.php'); ?>
+
+@include('admin.footer')
