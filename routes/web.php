@@ -10,14 +10,36 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//social logins
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/fb','socialloginscontroller@fb');
 
-Route::get('groups', function () {
-    return view('group-listing');
+Route::get('/fbcallback','socialloginscontroller@fbcallback');
+
+Route::get('/pagegoogle','socialloginscontroller@googlepage');
+Route::get('/gcallback','socialloginscontroller@gcallback');
+//social logins end
+
+//indexpage 
+Route::get('/', 'maincontroller@indexpage');
+
+//catgeory and group search
+
+Route::get('/list/{id}','groupcontroller@list' );
+
+Route::get('/test','logincontroller@test');
+Route::post('/register','registercontroller@register');
+Route::get('/userpage',function(){
+
+	return view('create-meetup');
 });
+Route::post('/grpcreate','groupcontroller@store');
+Route::get('/groups','groupcontroller@groupsearch');
+
+
+// Route::get('groups', function () {
+//     return view('group-listing');
+// });
 
 Route::get('blogs', function () {
     return view('index');
@@ -35,6 +57,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('login', 'logincontroller@login');
+Route::post('logins', 'logincontroller@login');
+
+
+
+//admin control panel
+
+Route::get('/admin', 'admincontroller@index');
+Route::get('/addcat', 'admincontroller@catview' );
+Route::post('/catstore', 'admincontroller@catstore' );
+Route::get('/catlist', 'admincontroller@catlist' );
 
 
