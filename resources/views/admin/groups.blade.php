@@ -46,20 +46,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($lists as $list)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Hyderabad Tricking Club</td>
-                                    <td>Hyderabad</td>
+                                    <td>{{$loop->index+1}}</td>
+                                    <td>{{$list->gname}}</td>
+                                    <td>{{$list->location}}</td>
                                     <td>Reality</td>
                                     <td>Public</td>
-                                    <td>2100</td>
-                                    <td>24</td>
+                                    <td>{{$list->mcount}}</td>
+                                    <td>{{$list->eventcount}}</td>
                                     <td>
                                         <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash-o"></i> Delete
+                                         <a  href="{{url('/delgroup/'.$list->gid)}}"> <i class="fa fa-trash-o"></i> Delete</a>
                                         </button>
                                     </td>
                                 </tr>
+                                @endforeach
                                 <tr>
                                     <td>2</td>
                                     <td>Passion about Fashion</td>

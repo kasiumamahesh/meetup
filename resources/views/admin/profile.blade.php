@@ -1,6 +1,7 @@
-include('admin.header') 
+@include('admin.header') 
 @include('admin.sidebar')
 @include('admin.header-1')
+
 
 <div class="breadcrumbs">
     <div class="col-sm-4">
@@ -30,7 +31,7 @@ include('admin.header')
                 <div class="card">
                     <div class="card-header">
                         <strong class="card-title mb-3">Profile</strong>
-                        <a href="edit-profile.php" class="btn btn-sm btn-info float-right">
+                        <a href="{{url('/editprofile')}}" class="btn btn-sm btn-info float-right">
                             <i class="fa fa-edit"></i> Edit Profile
                         </a>
                     </div>
@@ -38,7 +39,7 @@ include('admin.header')
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="mx-auto d-block">
-                                    <img class="rounded-circle mx-auto d-block" src="images/admin.jpg" alt="Card image cap">
+                                    <img class="rounded-circle mx-auto d-block" src="{{asset('storage/'.$user->photo)}}" alt="Card image cap')}}">
                                     <h5 class="text-sm-center mt-2 mb-1">John Leo</h5>
                                 </div>
                             </div>
@@ -47,20 +48,22 @@ include('admin.header')
                                     <tbody>
                                         <tr>
                                             <td>Email Id</td>
-                                            <td>johnleo@gmail.com</td>
+                                            <td>{{$user->email}}</td>
                                         </tr>
                                         <tr>
                                             <td>Password</td>
-                                            <td>qwerty@123</td>
+                                            <td>{{$user->password}}</td>
                                         </tr>
                                         <tr>
-                                            <td>Phone Number</td>
-                                            <td>98xxxxxx56</td>
+                                            <td>Mobile Number</td>
+                                            <td>{{$user->mobileno}}</td>
                                         </tr>
+
+                                        
                                         <tr>
                                             <td>Location</td>
-                                            <td>Delhi</td>
-                                        </tr>
+                                            <td>{{$user->location}}</td>
+                                        </tr> 
                                     </tbody>
                                 </table>
                             </div>

@@ -35,42 +35,43 @@
                         <strong class="card-title">Edit Profile</strong>
                     </div>
                     <div class="card-body">
-                        <form method="" action="">
+                        <form method="post" action="{{url('/update')}}" enctype="multipart/form-data">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Name</label>
-                                        <input type="text" id="" value="John Deo" class="form-control">
+                                        <input type="text" id="" name="username" value="{{$user->name}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Email Id</label>
-                                        <input type="email" id="" value="Johndeo@gmail.com" class="form-control">
+                                        <input type="email" id="" name="email" value="{{$user->email}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Password</label>
-                                        <input type="password" id="" value="***********" class="form-control">
+                                        <input type="password" name="password" id="" value="{{$user->password}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Phone Number</label>
-                                        <input type="text" id="" value="98xxxxxx56" class="form-control">
+                                        <input type="text" name="mobile" id="" value="{{$user->mobileno}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Location</label>
-                                        <input type="text" id="" value="Delhi" class="form-control">
+                                        <input type="text" id="" value="{{$user->location}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Profile Pic</label>
-                                        <input type="file" id="" class="form-control">
+                                        <input type="file" name='photo' id="" class="form-control">
                                     </div>
                                 </div>
                             </div>

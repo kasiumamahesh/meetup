@@ -73,6 +73,24 @@ Route::get('/delcat/{id}',  'admincontroller@delcat' );
 
 // related to groups in admin panel
 
+
+Route::get('/adminlogin', 'admincontroller@logview');
+Route::post('/check', 'admincontroller@check');
+Route::get('/logout','admincontroller@logout');
+
+
 Route::get('/glist',  'admingrpcontroller@grouplist' );
+Route::get('/delgroup/{id}',  'admingrpcontroller@delgroup' );
+Route::get('/upeventlist','admingrpcontroller@upeventlist');
+Route::get('/delevent/{id}','admingrpcontroller@delevent');
+Route::get('/eventslist','admingrpcontroller@eventslist');
+Route::get('/users','admingrpcontroller@musers');
+Route::get('/deluser/{id}','admingrpcontroller@deluser');
+
+Route::get('/profile','profilecontroller@pview');
+Route::get('/editprofile','profilecontroller@editprofile');
+Route::post('/update','profilecontroller@profileupdate');
+
+ 
  
 

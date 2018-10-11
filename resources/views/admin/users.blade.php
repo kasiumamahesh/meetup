@@ -44,19 +44,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($users as $user)
                                 <tr>
-                                    <td>1</td>
-                                    <td>John Deo</td>
-                                    <td>johndeo@gmail.com</td>
-                                    <td>21-9-2018</td>
-                                    <td>210</td>
-                                    <td>24</td>
+                                    <td>{{$loop->index+1}}</td>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->created_at}}</td>
+                                    <td>{{$user->cgrp}}</td>
+                                    <td>{{$user->cmem}}</td>
                                     <td>
                                         <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash-o"></i> Delete
+                                        <a href="{{url('/deluser/'.$user->id)}}">   <i class="fa fa-trash-o"></i> Delete </a>
                                         </button>
                                     </td>
                                 </tr>
+                                @endforeach
                                 <tr>
                                     <td>2</td>
                                     <td>Leo Cartey</td>

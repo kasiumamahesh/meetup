@@ -22,17 +22,17 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="{{url('/grps')}}"> <i class="menu-icon fa fa-users"></i>Groups</a>
+                    <a href="{{url('/glist')}}"> <i class="menu-icon fa fa-users"></i>Groups</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="menu-icon fa fa-calendar"></i>Events</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-angle-right"></i><a href="events-list.php">Events List</a></li>
-                        <li><i class="menu-icon fa fa-angle-right"></i><a href="upcoming-events.php">Upcoming Events</a></li>
+                        <li><i class="menu-icon fa fa-angle-right"></i><a href="{{url('/eventslist')}}">Events List</a></li>
+                        <li><i class="menu-icon fa fa-angle-right"></i><a href="{{url('/upeventlist')}}">Upcoming Events</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="users.php"> <i class="menu-icon fa fa-user"></i>Users</a>
+                    <a href="{{url('/users')}}"> <i class="menu-icon fa fa-user"></i>Users</a>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>

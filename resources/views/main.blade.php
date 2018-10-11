@@ -827,25 +827,25 @@
         <script src="http://maps.google.com/maps/api/js?key=AIzaSyC61_QVqt9LAhwFdlQmsNwi5aUJy9B2SyA"></script>
 
         <!-- calendar jquery include -->
-        <script src="{{asset('assets/js/atc.min.js'}}"></script>
-                ')
+        <script src="{{asset('assets/js/atc.min.js')}}"></script>
+                
         <!-- others jquery include -->
-        <script src="{{asset('assets/js/jquery.magnific-popup.min.js'}}"></script>
-        <script src="{{asset('assets/js/isotope.pkgd.min.js'}}"></script>
-        <script src="{{asset('assets/js/jarallax.min.js'}}"></script>
-        <script src="{{asset('assets/js/jquery.mCustomScrollbar.concat.min.js'}}"></script>
-        <script src="{{asset('assets/js/lightcase.js'}}"></script>
+        <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+        <script src="{{asset('assets/js/isotope.pkgd.min.js')}}"></script>
+        <script src="{{asset('assets/js/jarallax.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+        <script src="{{asset('assets/js/lightcase.js')}}"></script>
         
         <!-- gallery img loaded - jqury include -->
-        <script src="{{asset('assets/js/imagesloaded.pkgd.min.js'}}"></script>
+        <script src="{{asset('assets/js/imagesloaded.pkgd.min.js')}}"></script>
 
         <!-- multy count down - jqury include -->
-        <script src="{{asset('assets/js/jquery.countdown.js'}}"></script>
+        <script src="{{asset('assets/js/jquery.countdown.js')}}"></script>
 
         
 
         <!-- custom jquery include -->
-        <script src="{{asset('assets/js/custom.js'}}"></script>
+        <script src="{{asset('assets/js/custom.js')}}"></script>
 <!-- <script type="text/javascript">        
 $("form").submit(function(){
     alert('form submitted');

@@ -47,62 +47,27 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                 @foreach($events as $event)
+                 
+                 <?php 
+                  $temp = explode(' ',$event->event_date);
+                ?>
                                 <tr>
-                                    <td>1</td>
-                                    <td>Mumbai Food Truck Festival</td>
-                                    <td>Mumbai</td>
-                                    <td>21-9-2018</td>
-                                    <td>10:00 - 13:00</td>
-                                    <td>24</td>
-                                    <td><span>Rs.</span>2,400</td>
+                                    <td>{{$loop->index+1}}</td>
+                                    <td>{{$event->event_name}}</td>
+                                    <td>{{$event->event_name}}</td>
+                                   <td>{{$temp[0]}}</td>
+                                   <td>  {{$temp['1']}}</td>
+                                    <td>{{$event->no_tickets}}</td>
+                                    <td><span>Rs.</span>{{$event->ticket_price}}</td>
                                     <td>
                                         <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash-o"></i> Delete
+                                        <a href="{{url('/delevent/'.$event->id)}}"  <i class="fa fa-trash-o"></i> Delete <a>
                                         </button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Bangalore Fashion Show</td>
-                                    <td>Bangalore</td>
-                                    <td>1-6-2018</td>
-                                    <td>9:00 - 16:00</td>
-                                    <td>40</td>
-                                    <td><span>Rs.</span>2,400</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash-o"></i> Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>The Reality</td>
-                                    <td>Hyderabad</td>
-                                    <td>14-5-2017</td>
-                                    <td>14:00 - 18:00</td>
-                                    <td>200</td>
-                                    <td><span>Rs.</span>2,400</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash-o"></i> Delete
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Trucking to the Hill</td>
-                                    <td>Chennai</td>
-                                    <td>7-3-2017</td>
-                                    <td>5:00 - 9:00</td>
-                                    <td>100</td>
-                                    <td><span>Rs.</span>8,400</td>
-                                    <td>
-                                        <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash-o"></i> Delete
-                                        </button>
-                                    </td>
-                                </tr>
+                                @endforeach
+                                    
                             </tbody>
                         </table>
                     </div>
