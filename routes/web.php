@@ -91,6 +91,9 @@ Route::get('/profile','profilecontroller@pview');
 Route::get('/editprofile','profilecontroller@editprofile');
 Route::post('/update','profilecontroller@profileupdate');
 
- 
+ //payments
+Route::get('/paylist','paymentcontroller@paymentlist');
+Route::get('/delpayment/{id}','paymentcontroller@delpayment');
+
  
 

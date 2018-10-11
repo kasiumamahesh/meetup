@@ -45,19 +45,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($payments as $payment)
                                 <tr>
-                                    <td>1</td>
-                                    <td>John Deo</td>
-                                    <td>johndeo@gmail.com</td>
-                                    <td>21-9-2018</td>
-                                    <td>Hyderabad Tricking Club</td>
-                                    <td>2400</td>
+                                    <td>{{$loop->index+1}}</td>
+                                    <td>{{$payment->name}}</td>
+                                    <td>{{$payment->email}}</td>
+                                    <td>{{$payment->date}}</td>
+                                    <td>{{$payment->group_name}}</td>
+                                    <td>{{$payment->amount}}</td>
                                     <td>
                                         <button type="button" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash-o"></i> Delete
+                                          <a href="{{url('/delpayment/'.$payment->id)}}" <i class="fa fa-trash-o"></i> Delete
                                         </button>
                                     </td>
                                 </tr>
+                                @endforeach
                                 <tr>
                                     <td>2</td>
                                     <td>Leo Cartey</td>
