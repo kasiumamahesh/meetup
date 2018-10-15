@@ -59,15 +59,21 @@ class profilecontroller extends Controller
             	
   	  return redirect('/editprofile');
            }
-
+          // $id=Session::get('id');
+ $edituser="use has been updated successfully";
 if ($request->hasFile('photo')) {
 
  	$path=$request->file('photo')->store('profile');
 
-     DB::update('update admin_tab set email=?,password=?,name=?,mobileno=?,photo=? where id=?',[$request->email,$request->password,$request->username,$request->mobile,$path,$id]  );
+     DB::update('update admin_tab set email=?,password=?,name=?,mobileno=?,photo=?,location=? where id=?',[$request->email,$request->password,$request->username,$request->mobile,$path,$request->location,$id]  );
+     
 
 
-return redirect('/profile');
+                //$user= DB::table('admin_tab')->where('id',$id)->first();
+
+
+return redirect('/profile'); 
+     //return view('admin.profile',['user'=>$user,'edituser'=>$edituser]);
     
  }
 
@@ -75,6 +81,7 @@ return redirect('/profile');
      
  	DB::update('update admin_tab set email=?,password=?,name=?,mobileno=? where id=?',[$request->email,$request->password,$request->username,$request->mobile,$id]  );
  	  return redirect('/profile');
+ 
 
  }
  

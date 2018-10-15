@@ -95,5 +95,39 @@ Route::post('/update','profilecontroller@profileupdate');
 Route::get('/paylist','paymentcontroller@paymentlist');
 Route::get('/delpayment/{id}','paymentcontroller@delpayment');
 
- 
+ //mail routes
+Route::get('/mail','messagecontroller@mailpage');
+Route::post('/sendmail','messagecontroller@sendmail');
+Route::get('/readmail/{id}','messagecontroller@readmail');
+Route::get('/trash/{id}','messagecontroller@trash');
+Route::get('/pdelmsg/{id}','messagecontroller@delete');
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/email',function(){
+
+
+
+ Mail::raw('welcomeejeje' ,function ($message) 
+        {
+            $message->to("kasiphp5@gmail.com");
+        
+        });
+
+
+});

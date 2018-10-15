@@ -7,13 +7,22 @@ use Illuminate\Http\Request;
 use DB;
 use Validator;
 use Session;
+Use Mail;
 
 
 class admincontroller extends Controller
 {
     //
 //dahsboard page
+
 public function logview(){
+
+  //if already loggedin
+  if (Session::has('email'))
+{
+
+  return redirect('/admin');
+}
 
   return view('admin.login');
 }
@@ -35,6 +44,9 @@ $validator = Validator::make($request->all(), [
      if($data){
       Session::put('id',$data->id);
       Session::put('email',$data->email);
+  
+    
+
 
 return  redirect('/admin');
 
