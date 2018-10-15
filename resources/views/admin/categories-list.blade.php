@@ -44,7 +44,7 @@
                             <tbody>
                                 @foreach($lists as $list)
                                 <tr>
-                                    <td>{{$list->id}}</td>
+                                    <td>{{$loop->index+1}}</td>
                                     <td>{{$list->cat_name}}</td>
                                     <td>{{$list->created_time}}</td>
                                     <td>

@@ -51,6 +51,20 @@ if($('#msgdelete').length>0){
     alert(' mail deleted');
 }
      
+if($('#msgdelete').length>0){
+
+    alert(' mail deleted');
+}
+
+if($('#catg').length>0){
+
+    alert(' you must enter category');
+}
+
+if($('#profileerror').length>0){
+
+    alert(' you must fill the requierd fields');
+}
     
 });
     

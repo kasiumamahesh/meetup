@@ -101,6 +101,8 @@ Route::post('/sendmail','messagecontroller@sendmail');
 Route::get('/readmail/{id}','messagecontroller@readmail');
 Route::get('/trash/{id}','messagecontroller@trash');
 Route::get('/pdelmsg/{id}','messagecontroller@delete');
+Route::get('/replymail/{id}','messagecontroller@replymail');
+
 
 
 

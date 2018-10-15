@@ -1,6 +1,10 @@
 @include('admin.header') 
 @include('admin.sidebar')
 @include('admin.header-1')
+@if(session()->has('profileerror'))
+    
+    <div   id='profileerror' data-email="{{ session()->get('profileerror')}}"></div>
+@endif 
 
 <div class="breadcrumbs">
     <div class="col-sm-4">
@@ -65,7 +69,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Location</label>
-                                        <input type="text" id="" value="{{$user->location}}" class="form-control">
+                                        <input type="text" id=""  name="location" value="{{$user->location}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">

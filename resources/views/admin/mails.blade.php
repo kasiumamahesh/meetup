@@ -1,6 +1,7 @@
 @include('admin.header')
 @include('admin.sidebar')
 @include('admin.header-1')
+
 @if(session()->has('message'))
     
     <div   id='mailexist' data-email="{{ session()->get('message')}}"></div>
@@ -17,6 +18,19 @@
     
     <div   id='msgdelete' data-email="{{ session()->get('msgdelete')}}"></div>
 @endif 
+<style>
+.btn-upload {
+  position: relative;
+  overflow: hidden;
+}
+.input-upload {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+</style>
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
@@ -86,18 +100,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($ins as $in)
+                                            @foreach($ins as $row)
                                             <tr> 
 
-                                                <td>{{$in->name}}</a></td>
-                                                <a href="read-mail.php"><td><b>{{$in->subject}}--{{$in->message}}
-                                                </td><a>
-                                                <td>{{$in->time}}</td>
+                                                <td>{{$row->name}}</a></td>
+                                               <td> <a href="{{url('/readmail/'.$row->id)}}"><b>{{$row->subject}}--{{$row->message}}
+                                                <a></td>
+                                                <td>{{$row->time}}</td>
                                                 <td>
-                                                    <a href="{{url('/readmail/'.$id)}}" class="btn btn-sm social btn-primary">
+                                                    <a href="{{url('/replymail/'.$row->id)}}" class="btn btn-sm social btn-primary">
                                                         <i class="fa fa-reply"></i>
                                                     </a>
-                                                    <a href="{{url('/trash/'.$in->id)}}" class="btn btn-sm social btn-danger">
+                                                    <a href="{{url('/trash/'.$row->id)}}" class="btn btn-sm social btn-danger">
                                                         <i class="fa fa-trash-o"></i>
                                                     </a>
                                                 </td>
@@ -140,7 +154,7 @@
                                             <div class="col-md-12">
                                                 <input type='file' name='uploads[]'  multiple>
                                                     <i class="fa fa-paperclip"></i> Attachment
-                                                </a>
+                                                
                                                 <a href="#" class="btn btn-sm btn-danger">
                                                     <i class="fa fa-trash-o"></i>
                                                 </a>

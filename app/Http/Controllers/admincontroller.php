@@ -56,7 +56,7 @@ return  redirect('/admin');
 
 
 }
-
+//log out page
 public function logout(){
 
 
@@ -64,7 +64,7 @@ public function logout(){
   return redirect('/adminlogin');
 
 }
-
+// index page
 
 public function index(){
 
@@ -72,6 +72,15 @@ public function index(){
   {
 
 $cat=DB::table('cat_tab')->get();
+$cat5=DB::table('cat_tab')->orderby('created_time')->take(5)->get();
+$userid=Session::get('id');
+
+                $profile= DB::table('admin_tab')->where('id',$userid)->first();
+$mail=Session::get('email');
+
+
+$ins=DB::select('select  users.name,admin_tab.email,message_tab.id,message_tab.time,message,users.photo,subject from message_tab join admin_tab on (admin_tab.email=message_tab.recevier_mail) join users on(users.email=message_tab.sender_mail)  where recevier_mail=? and status=? and read_status=? order by time limit 5',[$mail,'active','unread']);
+
 $groups=DB::table('group_tab')->get();
 //$members=DB::table('members_tab')->get();
 $event=DB::select('select id from event_tab where event_date>now()');
@@ -82,7 +91,7 @@ $gp=count($groups);
 //$mem=count($members);
 $user=count($users);
 $events=count($event);
-return view('admin.index',["catg"=>$catg,"gp"=>$gp,"user"=>$user,"events"=>$events]);
+return view('admin.index',["catg"=>$catg,"gp"=>$gp,"user"=>$user,"events"=>$events,"cat5"=>$cat5,'profile'=>$profile,'ins'=>$ins]);
 }
 return redirect('/adminlogin');
 
@@ -112,7 +121,7 @@ $userid=Session::get('id');
        	if ($validator->fails()){
 
 
-       		return redirect('/addcat');
+       		return redirect()->back()->with('catg','category required');
               }
 
 

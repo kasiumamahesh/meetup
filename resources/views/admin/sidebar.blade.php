@@ -42,7 +42,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="payment-list.php"> <i class="menu-icon fa fa-money"></i>Payments</a>
+                    <a href="{{url('/paylist')}}"> <i class="menu-icon fa fa-money"></i>Payments</a>
                 </li>
                 <li>
                     <a href="payment-list.php"> <i class="menu-icon ti-email"></i>Mails</a>

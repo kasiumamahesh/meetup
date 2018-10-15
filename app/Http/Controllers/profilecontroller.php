@@ -48,7 +48,7 @@ class profilecontroller extends Controller
         	
         	$validator = Validator::make($request->all(), [
              'username' => 'required',
-               'mobile' => 'required',
+               'mobile' => 'required|numeric',
              'email' => 'required|unique:admin_tab,email,'.$id,
                         
              'password' => 'required|min:6'  ,
@@ -57,7 +57,7 @@ class profilecontroller extends Controller
             ]);
             if($validator->fails()){  
             	
-  	  return redirect('/editprofile');
+  	  return redirect('/editprofile')->with('profileerror','you must fill requiered ');
            }
           // $id=Session::get('id');
  $edituser="use has been updated successfully";
@@ -79,7 +79,7 @@ return redirect('/profile');
 
    else{
      
- 	DB::update('update admin_tab set email=?,password=?,name=?,mobileno=? where id=?',[$request->email,$request->password,$request->username,$request->mobile,$id]  );
+ 	DB::update('update admin_tab set email=?,password=?,name=?,mobileno=?,location=? where id=?',[$request->email,$request->password,$request->username,$request->mobile,$request->location,$id]  );
  	  return redirect('/profile');
  
 

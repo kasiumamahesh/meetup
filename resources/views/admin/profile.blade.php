@@ -62,7 +62,7 @@
                                         
                                         <tr>
                                             <td>Location</td>
-                                            <td>{{$edituser}}</td>
+                                            <td>{{$user->location}}</td>
                                         </tr> 
                                     </tbody>
                                 </table>
@@ -75,20 +75,5 @@
     </div><!-- .animated -->
 </div><!-- .content -->
 
-<!-- 
-<script type="text/javascript">
-    var s=<?php echo $edituser;
- 
-// var boolvar = <?php //if(isset($edituser)){
-//     echo $edituser;
-// } else {echo 'false';}?>;
 
-//   if( boolvar=='true'){
-//     alert("user has been added sucesssfully");
-    
-//   }
-//  else{ alert(boolvar)};
-
-</script>
- -->
 @include('admin.footer')

@@ -2,6 +2,11 @@
 @include('admin.sidebar')
 @include('admin.header-1')
 
+@if(session()->has('catg'))
+    
+    <div   id='catg' data-email="{{ session()->get('catg')}}"></div>
+@endif 
+
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
