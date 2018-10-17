@@ -60,7 +60,7 @@ class profilecontroller extends Controller
   	  return redirect('/editprofile')->with('profileerror','you must fill requiered ');
            }
           // $id=Session::get('id');
- $edituser="use has been updated successfully";
+ //$edituser="user has been updated successfully";
 if ($request->hasFile('photo')) {
 
  	$path=$request->file('photo')->store('profile');
@@ -72,7 +72,7 @@ if ($request->hasFile('photo')) {
                 //$user= DB::table('admin_tab')->where('id',$id)->first();
 
 
-return redirect('/profile'); 
+return redirect('/profile')->with('psuccess', 'profile changed successfully'); 
      //return view('admin.profile',['user'=>$user,'edituser'=>$edituser]);
     
  }
@@ -80,7 +80,7 @@ return redirect('/profile');
    else{
      
  	DB::update('update admin_tab set email=?,password=?,name=?,mobileno=?,location=? where id=?',[$request->email,$request->password,$request->username,$request->mobile,$request->location,$id]  );
- 	  return redirect('/profile');
+ 	  return redirect('/profile')->with('psuccess','profile change successfully');
  
 
  }

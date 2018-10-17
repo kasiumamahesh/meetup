@@ -2,21 +2,31 @@
 @include('admin.sidebar')
 @include('admin.header-1')
 
-@if(session()->has('message'))
+<!--  error in fields while sending -->
+@if(session()->has('msg1'))
+
     
-    <div   id='mailexist' data-email="{{ session()->get('message')}}"></div>
+    <div   id='msg1' data-msg1="{{ session()->get('msg1')}}"></div>
 @endif 
+<!-- move to trash -->
+@if(session()->has('trash'))
+    
+    <div   id='trash' data-trash="{{ session()->get('trash')}}"></div>
+@endif 
+<!-- mail send suceess fully when composing -->
 @if(session()->has('fileupload'))
     
     <div   id='fileupload' data-fileupload="{{ session()->get('fileupload')}}"></div>
 @endif 
+<!-- mail send succefully when composing -->
 @if(session()->has('mailsent'))
     
     <div   id='mailsent' data-mailsent="{{ session()->get('mailsent')}}"></div>
 @endif 
+<!-- message permently deleted -->
 @if(session()->has('msgdelete'))
     
-    <div   id='msgdelete' data-email="{{ session()->get('msgdelete')}}"></div>
+    <div   id='msgdelete' data-msgdelete="{{ session()->get('msgdelete')}}"></div>
 @endif 
 <style>
 .btn-upload {
@@ -132,13 +142,13 @@
                                 <strong class="card-title">Compose</strong>
                             </div>
                             <div class="card-body">
-                                <form method="post" action="{{url('/sendmail')}}" enctype="multipart/form-data">
+                                <form  id="composeform" method="post" action="{{url('/sendmail')}}" enctype="multipart/form-data">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="row">
                                         <div class="col-md-6 mx-auto">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <input type="email"  name='email' id="" value="" placeholder="To:" class="form-control">
+                                                    <input type="email"  name='email' id="email" value="" placeholder="To:" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -178,7 +188,7 @@
                                         <tbody>
                                             @foreach($outs as $out)
                                             <tr>
-                                                <td>{{$out->name}}</a></td>
+                                                <td>{{$out->recevier_mail}}</a></td>
                                                 <td><a href="{{url('/readmail/'.$out->id)}}"><b>{{$out->subject}}</b> -<?php $msg=substr($out->message, 0,12);echo $msg;  ?> ....</a>
                                                 </td>
                                                 <td>{{$out->time}}</td>
@@ -229,7 +239,7 @@
                                         <tbody>
                                             @foreach($dels as $del)
                                             <tr>
-                                                <td>{{$del->name}}</td>
+                                                <td>{{$del->sender_mail}}</td>
                                                  <td><a href="{{url('/readmail/'.$del->id)}}"><b>{{$del->subject}}</b> -<?php $msg=substr($del->message, 0,12);echo $msg;  ?> ....</a>
                                                 </td>
                                                 <td>{{$del->time}}</td>
@@ -275,5 +285,18 @@
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->
+
+<!-- modal -->
+  
+<div class="modal fade" id="m12" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p id='para'></p>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
 
  @include('admin.footer')

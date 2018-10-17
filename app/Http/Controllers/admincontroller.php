@@ -8,6 +8,7 @@ use DB;
 use Validator;
 use Session;
 Use Mail;
+use Cookie;
 
 
 class admincontroller extends Controller
@@ -29,6 +30,7 @@ public function logview(){
 public function check(Request $request)
 {
 
+
 $validator = Validator::make($request->all(), [
             'email' => 'required',
             'password' => 'required',
@@ -39,20 +41,29 @@ $validator = Validator::make($request->all(), [
          return  redirect()->back();
        }
 
+ $cookie1=cookie('dummy', 'dummy', 1);
+ $cookie2=cookie('dummy2', 'dummy2', 1);
+
    $data=DB::table('admin_tab')->where(["email"=>$request->email,"password"=>$request->password])->first() ;
    
      if($data){
       Session::put('id',$data->id);
       Session::put('email',$data->email);
   
-    
+    if($request->has('remember')){
+      //Cookie::queue('user', $data->email, 999999999);
+      //Cookie::queue('password', $request->password, 999999999);
+
+  $cookie1 = cookie('user', 'email', 10000);
+  $cookie2 = cookie('password','paaaas' , 10000);
+}
 
 
-return  redirect('/admin');
+return  redirect('/admin')->withCookie($cookie1)->withCookie($cookie2);
 
      }
                                 
-  return redirect()->back();
+  return redirect()->back()->with('wrongdata',"username or password  is invalid");
 
 
 }

@@ -2,10 +2,6 @@
 @include('admin.sidebar')
 @include('admin.header-1')
 
-@if(session()->has('message'))
-    
-    <div   id='mailexist' data-email="{{ session()->get('message')}}"></div>
-@endif 
 @if(session()->has('fileupload'))
     
     <div   id='fileupload' data-fileupload="{{ session()->get('fileupload')}}"></div>
@@ -16,7 +12,7 @@
 @endif 
 @if(session()->has('msgdelete'))
     
-    <div   id='msgdelete' data-email="{{ session()->get('msgdelete')}}"></div>
+    <div   id='msgdelete' data-msgdelete="{{ session()->get('msgdelete')}}"></div>
 @endif 
 
 <div class="breadcrumbs">
@@ -46,7 +42,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="mails.php" class="btn btn-sm btn-info">
+                        <a href="{{url('/mail')}}" class="btn btn-sm btn-info">
                             <i class="fa fa-chevron-left"></i>
                         </a>
                         <strong class="card-title">Reply</strong>

@@ -1,19 +1,18 @@
-@include('admin.header')
- <!--  empty mail or unformatedd mail-->
-@if(session()->has('errormail'))
+@include('admin.header') 
+
+@if(session()->has('invalidtoken'))
 
     
-    <div   id='errormail' data-errormail="{{ session()->get('errormail')}}"></div>
+    <div   id='invalidtoken' data-invalidtoken="{{ session()->get('invalidtoken')}}"></div>
 @endif 
-<!-- unregisterd mail -->
-@if(session()->has('nomail'))
+@if(session()->has('pwderror'))
 
     
-    <div   id='nomail' data-nomail="{{ session()->get('nomail')}}"></div>
+    <div   id='pwderror' data-pwderror="{{ session()->get('pwderror')}}"></div>
 @endif 
-<!-- invalid token or expired token -->
 
-    <div class="sufee-login d-flex align-content-center flex-wrap">
+
+<div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
             <div class="login-content">
                 <div class="login-logo">
@@ -22,19 +21,25 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form  id="resetform" action="{{url('/sendlink')}}" method="post">
+                    <form action="{{url('/changepassword')}}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                         <input type="hidden" name="token_name" value="{{$id}}">
                         <div class="form-group">
-                            <label>Email address</label>
-                            <input type="email"  name='email' class="form-control" placeholder="Email">
+                            <label>password</label>
+                            <input type="password"  name='password' class="form-control" placeholder="password">
                         </div>
+                        <div class="form-group">
+                            <label>confirmpassword</label>
+                            <input type="password"  name='cpassword' class="form-control" >
+                        </div>
+
                         <button type="submit" class="btn btn-primary btn-flat m-b-15">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- modal -->
+<!-- modal -->
   
 <div class="modal fade" id="m12" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document">
@@ -46,6 +51,5 @@
         </div>
     </div>
 </div>
-
 
 @include('admin.footer')

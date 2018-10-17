@@ -2,6 +2,7 @@
 @include('admin.sidebar')
 @include('admin.header-1')
 
+
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
@@ -14,7 +15,7 @@
         <div class="page-header float-right">
             <div class="page-title">
                 <ol class="breadcrumb text-right">
-                    <li><a href="index.php">Dashboard</a></li>
+                    <li><a href="{{url('/admin')}}">Dashboard</a></li>
                     <li class="active">Mails</li>
                 </ol>
             </div>
@@ -29,14 +30,14 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="mails.php" class="btn btn-sm btn-info">
+                        <a href="{{url('/mail')}}" class="btn btn-sm btn-info">
                             <i class="fa fa-chevron-left"></i>
                         </a>
                         <strong class="card-title">Read Mail</strong>
-                        <a href="#" class="btn btn-sm btn-primary float-right">
+                        <button  id='printbutton' class="btn btn-sm btn-primary float-right">
                             <i class="fa fa-print"></i>
-                        </a>
-                        <a href="" class="btn btn-sm btn-danger float-right mr-1">
+                        </button> 
+                        <a href="{{url('/trash/'.$msg->id)}}" class="btn btn-sm btn-danger float-right mr-1">
                             <i class="fa fa-trash-o"></i>
                         </a>
                     </div>
@@ -48,6 +49,12 @@
                                 <small class="float-right">{{$msg->time}}</small>
                                 <hr>
                                 <p>{{$msg->message}}</p>
+                                <div class="file-links">
+                                    @foreach($file as $row)
+                                    <a href="{{url('/download/'.$row->id.'/'.$row->file_name)}}" style="text-decoration:underline;color:#2d2dce;margin-right:10px;">{{$row->file_name}}<i class="fa fa-download"></i></a>
+                                     @endforeach
+                                    <a href="#" style="text-decoration:underline;color:#2d2dce;margin-right:10px;">FileName <i class="fa fa-download"></i></a>
+                                </div>
                                 
                             </div>
                         </div>

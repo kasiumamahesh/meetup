@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Session;
 use Validator;
+use Illuminate\Support\Facades\Storage;
 class messagecontroller extends Controller
 {
     //
@@ -18,10 +19,10 @@ if (Session::has('email'))
 $mail=Session::get('email');
 
 
-$ins=DB::select('select users.name,admin_tab.email,message_tab.id,message_tab.time,message,subject from message_tab join admin_tab on (admin_tab.email=message_tab.recevier_mail) join users on(users.email=message_tab.sender_mail)  where recevier_mail=? and status=?',[$mail,'active']);
+$ins=DB::select('select users.name,admin_tab.email,message_tab.id,message_tab.time,message,subject from message_tab join admin_tab on (admin_tab.email=message_tab.recevier_mail) join users on(users.email=message_tab.sender_mail)  where recevier_mail=? and status=? order by time desc',[$mail,'active']);
 
- $outs=DB::select('select admin_tab.name,admin_tab.email,subject,message_tab.id,message_tab.time,message from message_tab join admin_tab on (admin_tab.email=message_tab.sender_mail) where sender_mail=? and status=?',[$mail,'active']);
- $dels=DB::select('select admin_tab.name,admin_tab.email,message_tab.id,subject,message_tab.time,message from message_tab join admin_tab on(admin_tab.email=message_tab.sender_mail or admin_tab.email=message_tab.recevier_mail) where  status=? order by time',['inactive']);
+ $outs=DB::select('select  recevier_mail, admin_tab.name,admin_tab.email,subject,message_tab.id,message_tab.time,message from message_tab join admin_tab on (admin_tab.email=message_tab.sender_mail)  where sender_mail=? and status=? order by time desc',[$mail,'active']);
+ $dels=DB::select('select admin_tab.name,admin_tab.email,message_tab.id,subject,message_tab.time,message,sender_mail from message_tab join admin_tab on(admin_tab.email=message_tab.sender_mail or admin_tab.email=message_tab.recevier_mail)   where  status=? order by time desc',['inactive']);
 
 return view('admin.mails',['ins'=>$ins,'outs'=>$outs,"dels"=>$dels]);
 }
@@ -42,8 +43,8 @@ if (Session::has('email'))
 
        if($validator->fails()){
         
-
-        return redirect()->back()->with('message', 'IT WORKS!');
+             //dd($request->all());
+        return redirect()->back()->with('msg1', 'please fill required fields');
 
        }
 
@@ -83,7 +84,7 @@ foreach($files as $file)
  DB::table('message_tab')->insert(
     ['sender_mail' =>$email , 'recevier_mail' => $request->email,'subject'=>$request->subject,'message'=>$request->message]
 );
-return redirect()->back()->with('mailsent',"mail sent sucessfully");
+return redirect()->back()->with('fileupload',"mail sent sucessfully");
 
 }
 return redirect('/adminlogin');
@@ -97,7 +98,7 @@ if (Session::has('email'))
  
 
 $msg=DB::table('message_tab')->where('id',$id)->first();
-$file=DB::table('message_file_tab')->where('id',$msg->file_id);
+$file=DB::table('message_file_tab')->where('id',$msg->file_id)->get();
 DB::table('message_tab')->where('id',$id)->update(['read_status'=>'read']);
 
 return view('admin.read-mail',['msg'=>$msg,'file'=>$file]);
@@ -115,7 +116,7 @@ if (Session::has('email'))
 {
 DB::table('message_tab')->where('id','=',$id)->update(['status'=>'inactive']);
 
-return redirect('/mail');
+return redirect('/mail')->with('trash','mail moved to trash');
 
 }
 return redirect('/adminlogin');
@@ -133,7 +134,7 @@ $fileid=DB::table('message_tab')->where('id',$id)->first();
 DB::table('message_file_tab')->where('id',$fileid->file_id)->delete();
 DB::table('message_tab')->where('id',$id)->delete();
 
-return redirect('/mail')->with('msgdelete',"message deleted");
+return redirect('/mail')->with('msgdelete',"message permenently deleted");
 
   }
 
@@ -146,6 +147,7 @@ public function replymail($id){
   if(Session::has('email')){
 
 
+
 $umail=DB::table('message_tab')->where('id',$id)->first();
 
 //dd($umail);
@@ -155,8 +157,20 @@ return view('admin.reply-mail', ['umail'=>$umail]);
   }
   return redirect('/adminlogin');
 }
+//download the attachment
+public function download($id,$filename){
+  if(Session::has('email')){
 
 
+$file=DB::table('message_file_tab')->where([
+    ['file_name', '=', $filename],
+    ['id', '=',$id]
+])->first();
+//dd($file);
+return Storage::download($file->file_path);
+}
+return redirect('/adminlogin');
+}
 
 
  }

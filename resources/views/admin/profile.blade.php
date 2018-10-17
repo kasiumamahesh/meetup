@@ -1,6 +1,14 @@
 @include('admin.header') 
 @include('admin.sidebar')
 @include('admin.header-1')
+@if(session()->has('psuccess'))
+    
+    <div   id='psuccess' data-psuccess="{{ session()->get('psuccess')}}"></div>
+@endif 
+@if(session()->has('psuccess2'))
+    
+    <div   id='psuccess2' data-psuccess2="{{ session()->get('psuccess2')}}"></div>
+@endif 
 
 
 <div class="breadcrumbs">
@@ -74,6 +82,17 @@
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->
-
+<!-- modal -->
+  
+<div class="modal fade" id="m12" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p id='para'></p>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @include('admin.footer')
