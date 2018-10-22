@@ -114,7 +114,7 @@ public function deluser($id){
 if (Session::has('email')){
 
    DB::table('users')->where('id',$id)->delete();
-   return redirect('/users');
+   return redirect('/users')->with('udelete', 'user deleted');
 
 
 }

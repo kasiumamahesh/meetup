@@ -1,6 +1,10 @@
 @include('admin.header') 
 @include('admin.sidebar')
 @include('admin.header-1')
+
+@if(session()->has('udelete'))
+    <div   id='udelete' data-udelete="{{ session()->get('udelete')}}"></div>
+@endif 
 <div class="breadcrumbs">
     <div class="col-sm-4">
         <div class="page-header float-left">
@@ -108,6 +112,16 @@
         </div>
     </div><!-- .animated -->
 </div><!-- .content -->
+<div class="modal fade" id="m12" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p id='para'></p>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

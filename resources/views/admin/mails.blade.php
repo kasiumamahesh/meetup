@@ -244,6 +244,9 @@
                                                 </td>
                                                 <td>{{$del->time}}</td>
                                                 <td>
+                                                    <a href="{{url('/restoremail/'.$del->id)}}" class="btn btn-sm social btn-primary">
+                                                        <i class="fa fa-reply"></i>
+                                                    </a>
                                                     <a href="{{url('/pdelmsg/'.$del->id)}}" class="btn btn-sm social btn-danger">
                                                         <i class="fa fa-trash-o"></i>
                                                     </a>

@@ -74,8 +74,9 @@ public  function changepassword(Request $request){
 
   $validator = Validator::make($request->all(), [
         
-          'password' => 'required|min:6'  ,
-            'cpassword' => 'required|same:password']);
+          'password' => 'required|min:6|confirmed'  ,
+            ]);
+  //dd($request->all());
   if($validator->fails()){
 
 

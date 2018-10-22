@@ -21,16 +21,16 @@
                     </a>
                 </div>
                 <div class="login-form">
-                    <form action="{{url('/changepassword')}}" method="post">
+                    <form id='passwordform' action="{{url('/changepassword')}}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                          <input type="hidden" name="token_name" value="{{$id}}">
                         <div class="form-group">
                             <label>password</label>
-                            <input type="password"  name='password' class="form-control" placeholder="password">
+                            <input type="password" id="password" name='password' class="form-control" placeholder="password">
                         </div>
                         <div class="form-group">
                             <label>confirmpassword</label>
-                            <input type="password"  name='cpassword' class="form-control" >
+                            <input type="password" id='cpassword' name='password_confirmation' class="form-control" >
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-flat m-b-15">Submit</button>

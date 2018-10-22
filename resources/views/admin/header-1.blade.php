@@ -72,8 +72,8 @@
                        <a class="nav-link text-white" href="{{url('/mail')}}"><i class="ti-email"></i> Mails <span class="count">13</span></a>
 
 
-                        <a class="nav-link text-white" href="{{url('/editprofile')}}"><i class="fa fa-cog"></i> Settings</a>
-
+                        <a class="nav-link text-white" href="{{url('/passwordpg')}}"><i class="fa fa-cog"></i>Change Password</a>
+ 
                         <a class="nav-link text-white" href="{{url('/logout')}}"><i class="fa fa-power-off"></i> Logout</a>
                     </div>
                 </div>

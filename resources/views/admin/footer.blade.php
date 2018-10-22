@@ -38,7 +38,43 @@
 
 <script type="text/javascript">
 
+  
   $(document).ready(function(){
+    // add category message
+  @if(Session::has('addcat'))
+  msg={!!json_encode(Session::get('addcat'))!!};
+  $('.childpara').remove();
+
+ var  data="<p class='childpara'>"+msg+"</p>";
+
+            $('#para').append(data);
+            $('#m12').modal('show');
+  
+  @endif
+
+  // edit category message
+  @if(Session::has('editcat'))
+  msg={!!json_encode(Session::get('editcat'))!!};
+  $('.childpara').remove();
+
+ var  data="<p class='childpara'>"+msg+"</p>";
+
+            $('#para').append(data);
+            $('#m12').modal('show');
+  
+  @endif
+  // category delete
+  @if(Session::has('deletecat'))
+  msg={!!json_encode(Session::get('deletecat'))!!};
+  $('.childpara').remove();
+
+ var  data="<p class='childpara'>"+msg+"</p>";
+
+            $('#para').append(data);
+            $('#m12').modal('show');
+  
+  @endif
+
          //begging of login validations
          $('#loginform').on('submit',function(){
 
@@ -169,6 +205,46 @@ if($('#psuccess').length>0){
 }
 // end of profile changed succfully
 
+// password change in admin panel
+ @if(Session::has('oldpwd-error'))
+  msg={!!json_encode(Session::get('oldpwd-error'))!!};
+  $('.childpara').remove();
+
+ var  data="<p class='childpara'>"+msg+"</p>";
+
+            $('#para').append(data);
+            $('#m12').modal('show');
+  
+  @endif
+
+  //password page validatiosn
+   @if(Session::has('pwderrors'))
+  var msg={!!json_encode(Session::get('pwderrors'))!!};
+  for(i in msg)
+  {
+    data="<p class='childpara'>"+msg[i] +"</p>";
+     $('#para').append(data);
+    
+  }
+
+
+             $('#m12').modal('show');
+  
+  @endif
+
+// password successfully changed
+@if(Session::has('success-password'))
+  var msg={!!json_encode(Session::get('success-password'))!!};
+  $('.childpara').remove();
+
+ var  data="<p class='childpara'>"+msg+"</p>";
+
+            $('#para').append(data);
+            $('#m12').modal('show');
+  
+  @endif
+
+
        // start of compose  mail validations  
  $('#composeform').on('submit',function(){
   
@@ -189,7 +265,7 @@ var  data="<p class='childpara'>must pass the email field</p>";
  });
 // end of compose mail validations
 
-// begnning of compose mail succefully
+// begnning of compose mail successfully
 
 
 if( $('#fileupload').length >0) {
@@ -240,6 +316,8 @@ $('#resetform').on('submit',function(){
             return false;
          }
       });
+
+
 
 //entering the unregistered mail
 
@@ -304,11 +382,55 @@ if( $('#invalidtoken').length >0) {
             $('#m12').modal('show');
 
 }
-// must enter password and match with confirm password
+// must enter password and match with confirm password from frontend
+$('#passwordform').on('submit',function(){
+  
+
+$('.childpara').remove();
+if($('#password').val().length!==$('#cpassword').val().length ||$('#password').val()!==$('#cpassword').val()){
+
+  var  data="<p class='childpara'>password must match with confirm password</p>";
+  $('#para').append(data);
+   $('#m12').modal('show');
+   return false;
+}
+if( $('#password').val().length==0||$('#cpassword').val().length==0){
+  if( $('#password').val().length==0){
+
+var  data="<p class='childpara'>must enter password field</p>";
+
+            $('#para').append(data);
+            // $('#m12').modal('show');
+            // return false;
+          } 
+          if( $('#cpassword').val().length==0){
+
+var  data="<p class='childpara'>must enter the confirm password field</p>";
+
+            $('#para').append(data);
+            
+          } 
+           $('#m12').modal('show');
+             return false;
+
+}
+
+
+ });
+
+
+// must enter password and match with confirm password from backend
 if( $('#pwderror').length >0) {
 
+               
+ $('.childpara').remove();
 
-   alert($('#pwderror').data('pwderror'));
+
+ msg= $('#pwderror').data('pwderror');
+ var  data="<p class='childpara'>"+msg+"</p>";
+
+            $('#para').append(data);
+            $('#m12').modal('show');
 
 }
 
@@ -342,6 +464,18 @@ if( $('#trash').length>0){
 }
 
 //  end of mail move
+//mail restore
+ @if(Session::has('restoremsg'))
+  msg={!!json_encode(Session::get('restoremsg'))!!};
+  $('.childpara').remove();
+
+ var  data="<p class='childpara'>"+msg+"</p>";
+
+            $('#para').append(data);
+            $('#m12').modal('show');
+  
+  @endif
+
     //mail deleted permently   
      
 if($('#msgdelete').length>0){
@@ -356,7 +490,21 @@ if($('#msgdelete').length>0){
             $('#para').append(data);
             $('#m12').modal('show');
 }
+// delete user
 
+if($('#udelete').length>0){
+
+ $('.childpara').remove();
+
+
+ msg= $('#udelete').data('udelete');
+ var  data="<p class='childpara'>"+msg+"</p>";
+
+            $('#para').append(data);
+            $('#m12').modal('show');
+
+   
+}
 
 
 // you must enter requeird fields while profile changing

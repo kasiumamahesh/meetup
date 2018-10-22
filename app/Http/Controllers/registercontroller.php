@@ -8,11 +8,20 @@ use Validator;
 use Illuminate\Support\Facades\Auth;
 
 use  App\User;
-
-
+use DB;
+use Session;
 class registercontroller extends Controller
 {
     //
+
+  public function testscript(){
+
+      
+$message=DB::table('message_tab')->get();
+
+return view('admin.test',["message"=>$message]);
+
+  }
 
     public function register(Request $request){
 

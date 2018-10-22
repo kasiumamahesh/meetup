@@ -74,5 +74,18 @@
     </div><!-- .animated -->
 </div><!-- .content -->
 
+<!-- modal -->
+  
+<div class="modal fade" id="m12" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <p id='para'></p>
+                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @include('admin.footer')

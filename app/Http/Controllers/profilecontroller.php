@@ -80,7 +80,7 @@ return redirect('/profile')->with('psuccess', 'profile changed successfully');
    else{
      
  	DB::update('update admin_tab set email=?,password=?,name=?,mobileno=?,location=? where id=?',[$request->email,$request->password,$request->username,$request->mobile,$request->location,$id]  );
- 	  return redirect('/profile')->with('psuccess','profile change successfully');
+ 	  return redirect('/profile')->with('psuccess','profile changed successfully');
  
 
  }

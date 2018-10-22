@@ -49,24 +49,35 @@ $validator = Validator::make($request->all(), [
      if($data){
       Session::put('id',$data->id);
       Session::put('email',$data->email);
-  
+
+  if(Cookie::has('user') and Cookie::has('password')){
+    if($request->has('remember')){
+      
+    $cookie1 = cookie('user', $data->email, 10000);
+  $cookie2 = cookie('password',$request->password , 10000);
+  return  redirect('/admin')->withCookie($cookie1)->withCookie($cookie2);
+
+  }
+
+return redirect('/admin');
+
+  }
     if($request->has('remember')){
       //Cookie::queue('user', $data->email, 999999999);
       //Cookie::queue('password', $request->password, 999999999);
-
-  $cookie1 = cookie('user', 'email', 10000);
-  $cookie2 = cookie('password','paaaas' , 10000);
+      $cookie1 = cookie('user', $data->email, 10000);
+  $cookie2 = cookie('password',$request->password , 10000);
+  }
+  return  redirect('/admin')->withCookie($cookie1)->withCookie($cookie2);
+  }
+return redirect()->back()->with('wrongdata',"username or password  is invalid");
+  
 }
 
 
-return  redirect('/admin')->withCookie($cookie1)->withCookie($cookie2);
-
-     }
-                                
-  return redirect()->back()->with('wrongdata',"username or password  is invalid");
 
 
-}
+     
 //log out page
 public function logout(){
 
@@ -139,7 +150,7 @@ $userid=Session::get('id');
 DB::table('cat_tab')->insert(["cat_name"=>$request->catname,"created_by"=>$userid]);
 
 
-return redirect('/catlist');
+return redirect('/catlist')->with('addcat', 'new category added');
 }
 return redirect('/adminlogin');
 }
@@ -195,7 +206,7 @@ return redirect('/adminlogin');
 
 
 
-            return redirect('/catlist');
+            return redirect('/catlist')->with('editcat','category edited');
 
   }
   return redirect('/adminlogin');
@@ -214,10 +225,58 @@ return redirect('/adminlogin');
             ->delete();
 
 
-return redirect('/catlist');
+return redirect('/catlist')->with('deletecat','category deleted');
   }
   return redirect('/adminlogin');
 }
- 
+ // change password page
+ public function passwordpage()
 
+  {
+    if (Session::has('email'))
+{
+ return view('admin.change-admin-password');
+
+
+  }
+  return redirect('/adminlogin');
+}
+// update password
+public function updatepassword(Request $request)
+
+  {
+    if (Session::has('email'))
+{
+  $messages = [
+    'opassword.required' => ' old password should not be empty',
+     'password.required' => ' password should not be empty',
+];
+
+
+  $validator = Validator::make($request->all(), [
+          'opassword'=>'required',
+        
+          'password' => 'required|min:6|confirmed'  ,
+            ],$messages);
+  if($validator->fails()){
+
+   return redirect()->back()->with('pwderrors',$validator->errors());
+      
+
+  }
+
+ $mail=Session::get('email');
+ $row=DB::table('admin_tab')->where('email',$mail)->first();
+ if(!($row->password==$request->opassword)){
+
+return redirect()->back()->with('oldpwd-error','you are entering wrong old password');
+
+ }
+ DB::table('admin_tab')->where('email',$mail)->update(['password'=>$request->password]);
+
+ return redirect('/admin')->with('success-password','password successfully changed');
+
+  }
+  return redirect('/adminlogin');
+}
 }

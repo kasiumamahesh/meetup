@@ -140,7 +140,31 @@ return redirect('/mail')->with('msgdelete',"message permenently deleted");
 
 return redirect('/adminlogin');
 }
+//restore mail from trash
+public function restoremail($id){
 
+  if(Session::has('email')){
+    $mail=Session::get('email');
+
+DB::table('message_tab')->where('id',$id)->update(['status'=>'active']);
+
+$row=DB::table('message_tab')->where('id',$id)->first();
+if($mail==$row->sender_mail){
+
+  $msg="mail moved to  sent mail";
+}
+else{
+
+  $msg="mail moved to   inbox";
+}
+
+
+return redirect('/mail')->with('restoremsg',$msg);
+
+  }
+
+return redirect('/adminlogin');
+}
 //reply mail 
 public function replymail($id){
 

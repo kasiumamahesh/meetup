@@ -77,10 +77,16 @@ Route::get('/delcat/{id}',  'admincontroller@delcat' );
 Route::get('/adminlogin', 'admincontroller@logview');
 Route::post('/check', 'admincontroller@check');
 Route::get('/logout','admincontroller@logout');
+//change password in admin panel
+Route::get('/passwordpg','admincontroller@passwordpage');
+//update password
+Route::post('/updatepwd','admincontroller@updatepassword');
+
 Route::get('/forgotpage', 'forgotpwdcontroller@forgotpage');
 Route::post('/sendlink', 'forgotpwdcontroller@sendlink');
 Route::get('/resetpwd/{id}', 'forgotpwdcontroller@resetpage');
 Route::post('/changepassword', 'forgotpwdcontroller@changepassword');
+
 
 
 
@@ -109,6 +115,8 @@ Route::get('/trash/{id}','messagecontroller@trash');
 Route::get('/pdelmsg/{id}','messagecontroller@delete');
 Route::get('/replymail/{id}','messagecontroller@replymail');
 Route::get('/download/{id}/{filename}','messagecontroller@download');
+Route::get('/restoremail/{id}','messagecontroller@restoremail');
+
 
 
 
@@ -120,7 +128,7 @@ echo $s;
 
 });
 
-
+Route::get('/testscript','registercontroller@testscript');
 
 
 
