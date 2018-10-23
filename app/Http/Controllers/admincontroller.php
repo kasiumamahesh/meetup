@@ -49,6 +49,7 @@ $validator = Validator::make($request->all(), [
      if($data){
       Session::put('id',$data->id);
       Session::put('email',$data->email);
+      Session::put('photo', $data->photo);
 
   if(Cookie::has('user') and Cookie::has('password')){
     if($request->has('remember')){
@@ -278,5 +279,23 @@ return redirect()->back()->with('oldpwd-error','you are entering wrong old passw
 
   }
   return redirect('/adminlogin');
+}
+
+//listing the unread mails
+public function getmail(){
+  $mail=Session::get('email');
+
+
+
+$ins=DB::select('select  users.name,admin_tab.email,message_tab.id,message_tab.time,message,users.photo,subject from message_tab join admin_tab on (admin_tab.email=message_tab.recevier_mail) join users on(users.email=message_tab.sender_mail)  where recevier_mail=? and status=? and read_status=? order by time ',[$mail,'active','unread']);
+
+return response()->json($ins);
+
+
+
+
+
+
+
 }
 }

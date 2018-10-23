@@ -54,12 +54,12 @@
                                         <input type="email" id="email" name="email" value="{{$user->email}}" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                               <!--  <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Password</label>
                                         <input type="password" id="password" name="password" id="" value="{{$user->password}}" class="form-control">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Phone Number</label>

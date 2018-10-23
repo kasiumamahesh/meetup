@@ -38,19 +38,19 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Old Password</label>
-                                        <input type="text" id="" name='opassword' value="" placeholder="Enter Old Password" class="form-control">
+                                        <input type="password" id="" name='opassword' value="" placeholder="Enter Old Password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">New Password</label>
-                                        <input type="text" id="" name='password' value="" placeholder="Enter New Password" class="form-control">
+                                        <input type="password" id="" name='password' value="" placeholder="Enter New Password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Confirm New Password</label>
-                                        <input type="text" id="" value="" name='password_confirmation' placeholder="Confirm New Password" class="form-control">
+                                        <input type="password" id="" value="" name='password_confirmation' placeholder="Confirm New Password" class="form-control">
                                     </div>
                                 </div>
                             </div>

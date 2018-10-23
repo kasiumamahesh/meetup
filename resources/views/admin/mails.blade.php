@@ -1,6 +1,18 @@
 @include('admin.header')
 @include('admin.sidebar')
 @include('admin.header-1')
+<style>
+.btn-upload {
+  position: relative;
+  overflow: hidden;
+}
+.input-upload {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
 
 <!--  error in fields while sending -->
 @if(session()->has('msg1'))
@@ -28,18 +40,7 @@
     
     <div   id='msgdelete' data-msgdelete="{{ session()->get('msgdelete')}}"></div>
 @endif 
-<style>
-.btn-upload {
-  position: relative;
-  overflow: hidden;
-}
-.input-upload {
-  position: absolute;
-  font-size: 50px;
-  opacity: 0;
-  right: 0;
-  top: 0;
-}
+
 </style>
 <div class="breadcrumbs">
     <div class="col-sm-4">

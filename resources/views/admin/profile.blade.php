@@ -47,7 +47,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="mx-auto d-block">
-                                    <img class="rounded-circle mx-auto d-block" src="{{asset('storage/'.$user->photo)}}" alt="Card image cap')}}">
+                                    <img class="rounded-circle mx-auto d-block" src="{{asset('public/storage/'.$user->photo)}}" alt="Card image cap')}}">
                                     <h5 class="text-sm-center mt-2 mb-1">{{$user->name}}</h5>
                                 </div>
                             </div>

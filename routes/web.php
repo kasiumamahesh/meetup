@@ -70,6 +70,8 @@ Route::get('/catlist', 'admincontroller@catlist' );
 Route::post('/catedited', 'admincontroller@catedited' );
 Route::get('/editcat/{id}', 'admincontroller@editcat' );
 Route::get('/delcat/{id}',  'admincontroller@delcat' );
+Route::get('/getmail', 'admincontroller@getmail');
+
 
 // related to groups in admin panel
 

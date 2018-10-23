@@ -89,7 +89,13 @@
             <div class="card-body">
                 <div class="clearfix">&nbsp;</div>
                 <div class="mx-auto d-block">
-                    <img class="rounded-circle mx-auto d-block" src="{{asset('storage/'.$profile->photo)}}" alt="Card image cap">
+                     @if($profile->photo=='')
+                             
+                             <img class="rounded-circle mx-auto d-block" src="{{asset('public/storage/img.png') }}" alt="Card image cap">
+                            
+                            @else
+                    <img class="rounded-circle mx-auto d-block" src="{{asset('public/storage/'.$profile->photo)}}" alt="Card image cap">
+                    @endif
                     <h5 class="text-sm-center mt-2 mb-1">{{$profile->name}}</h5>
                     <div class="location text-sm-center"><i class="fa fa-map-marker"></i> {{$profile->location}}</div>
                 </div>
@@ -133,8 +139,14 @@
             <div class="card-body">
                 @foreach($ins as $in)
                     <section>
+
                         <span class="float-left mr-2">
-                            <img alt="avatar" src="{{asset('storage/'.$in->photo)}}" height="50px" width="50px">
+                            @if($in->photo=='')
+                             <img alt="avatar" src="{{asset('public/storage/img.png') }}" height="50px" width="50px">
+                            
+                            @else
+                             <img alt="avatar" src="{{asset('public/storage/').$in->photo }}" height="50px" width="50px">
+                            @endif
                         </span>
                         <span class="">
                             <p><small class="float-right">{{$in->time}}</small></p>

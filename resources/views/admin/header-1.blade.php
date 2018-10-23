@@ -18,10 +18,11 @@
                     <div class="dropdown for-message">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="ti-email"></i>
-                            <span class="count bg-primary">4</span>
+                            <span  id='mc'  class="count bg-primary"></span>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="message">
-                            <p class="red">You have 4 Mails</p>
+                        <div id="dynamicdata"
+            class="dropdown-menu" aria-labelledby="message">
+                     <!--        <p class="red">You have 4 Mails</p>
                             <a class="dropdown-item media bg-flat-color-1" href="#">
                                 <span class="photo media-left"><img alt="avatar" src="{{asset('images1/avatar/1.jpg')}}"></span>
                                 <span class="message media-body">
@@ -54,7 +55,7 @@
                                     <p class="text-light">Lorem ipsum dolor sit amet, consectetur</p>
                                 </span>
                             </a>
-                            <a href="mails.php" class="float-right text-white p-1">See all</a>
+                            <a href="mails.php" class="float-right text-white p-1">See all</a> -->
                         </div>
                     </div>
                 </div>
@@ -63,13 +64,13 @@
             <div class="col-sm-5">
                 <div class="user-area dropdown float-right">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="user-avatar rounded-circle" src="{{asset('images1/admin.jpg')}}" alt="User Avatar">
+                        <img class="user-avatar rounded-circle" src="{{asset('public/storage/'.Session::get('photo'))}}" alt="User Avatar">
                     </a>
 
                     <div class="user-menu dropdown-menu">
                         <a class="nav-link text-white" href="{{url('/profile')}}"><i class="fa fa-user"></i> My Profile</a>
 
-                       <a class="nav-link text-white" href="{{url('/mail')}}"><i class="ti-email"></i> Mails <span class="count">13</span></a>
+                       <a class="nav-link text-white" href="{{url('/mail')}}"><i class="ti-email"></i> Mails </a>
 
 
                         <a class="nav-link text-white" href="{{url('/passwordpg')}}"><i class="fa fa-cog"></i>Change Password</a>

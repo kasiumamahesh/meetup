@@ -51,7 +51,7 @@ class profilecontroller extends Controller
                'mobile' => 'required|numeric',
              'email' => 'required|unique:admin_tab,email,'.$id,
                         
-             'password' => 'required|min:6'  ,
+             // 'password' => 'required|min:6'  ,
              'photo'=>'image'
              
             ]);
@@ -65,10 +65,11 @@ if ($request->hasFile('photo')) {
 
  	$path=$request->file('photo')->store('profile');
 
-     DB::update('update admin_tab set email=?,password=?,name=?,mobileno=?,photo=?,location=? where id=?',[$request->email,$request->password,$request->username,$request->mobile,$path,$request->location,$id]  );
+     DB::update('update admin_tab set email=?,name=?,mobileno=?,photo=?,location=? where id=?',[$request->email,$request->username,$request->mobile,$path,$request->location,$id]  );
      
 
-
+Session::forget('photo');
+Session::put('photo', $path);
                 //$user= DB::table('admin_tab')->where('id',$id)->first();
 
 
@@ -79,7 +80,7 @@ return redirect('/profile')->with('psuccess', 'profile changed successfully');
 
    else{
      
- 	DB::update('update admin_tab set email=?,password=?,name=?,mobileno=?,location=? where id=?',[$request->email,$request->password,$request->username,$request->mobile,$request->location,$id]  );
+ 	DB::update('update admin_tab set email=?,name=?,mobileno=?,location=? where id=?',[$request->email,$request->username,$request->mobile,$request->location,$id]  );
  	  return redirect('/profile')->with('psuccess','profile changed successfully');
  
 

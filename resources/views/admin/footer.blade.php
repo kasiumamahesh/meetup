@@ -27,19 +27,83 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+     var burl='{{URL::asset('public/storage/')}}';
+  </script>
+  <script src="{{asset('assets1/js/mymodal.js')}}"></script>
+  <script type="text/javascript">$(window).bind("load", function() {
+  ajaxmail();
+});</script>
   
-
-  <!-- <script type="text/javascript">
-   // $(window).on('load',function(){
-   //      $('#m12').modal('show');
-   // });
-</script>
- -->
-
 <script type="text/javascript">
+
 
   
   $(document).ready(function(){
+//ajaxmail();
+setInterval(ajaxmail, 30000);
+    // base url
+    
+    // alert(burl);
+
+    // ajax call get the unread mails
+   //  setInterval(ajaxmail, 300);
+
+   //   function ajaxmail()    {      
+   //    $.ajax({
+   //                  type: "GET",    //GET or POST or PUT or DELETE verb
+   //                  url: 'http://localhost/meetup/getmail',     // Location of the service
+   //                  data: "",     //Data sent to server
+                   
+   //                  dataType: "json",   //Expected data format from server
+                    
+   //                  success: function (result) {//On Successful service call
+   //                    var count = Object.keys(result).length;
+   //                   $('.dropdown-toggle #mc').text(count);
+   //                     $('#dynamicdata').empty();
+
+              
+   //       if  (  $.isEmptyObject( result )){
+   //         $('#mc').text('0');
+          
+
+   //                 }
+   //       else{     // $('#mc').append(count);
+
+   //           data1 = "<p class='red'>You have" +count+" Mails</p>";
+   //            $('#dynamicdata').append(data1);
+   //                    $.each(result, function(index, row) {
+                       
+
+   //                     var data=
+
+   //                      " <a class='dropdown-item media bg-flat-color-1' href='#'>"
+   //                       +   " <span class='photo media-left'><img alt='avatar'"+" src='"+"{{asset('images1/avatar/1.jpg')}}'"+"></span>"+
+   //                              "<span class='message media-body'>"+
+   //                               "<span class='name float-left text-white'>"+row.name+"</span>"
+   //                                 +"<span class='time float-right text-white'>"+row.time+"</span>"
+   //                                 +"<p class='text-light'>Hello, this is an example msg</p>"
+   //                            +"</span>"+
+   //                        " </a>"    ;                
+                     
+ 
+   //                  $('#dynamicdata').append(data);
+
+                           
+   //                                                       });
+
+
+                                        
+        
+   //                  }}
+   //                  ,
+   //                  error: function() { //alert('error occured');
+
+   //                  } // When Service call fails
+   //              });
+   // }
+
+
     // add category message
   @if(Session::has('addcat'))
   msg={!!json_encode(Session::get('addcat'))!!};
@@ -191,18 +255,29 @@ if($('#catg').length>0){
       });
 // end of  editprofile validation
 //profile changed succefully
-if($('#psuccess').length>0){
+@if(Session::has('psuccess'))
+  msg={!!json_encode(Session::get('psuccess'))!!};
+  $('.childpara').remove();
 
-
-    $('.childpara').remove();
-
-
- msg= $('#psuccess').data('psuccess');
  var  data="<p class='childpara'>"+msg+"</p>";
 
             $('#para').append(data);
             $('#m12').modal('show');
-}
+  
+  @endif
+
+// if($('#psuccess').length>0){
+
+
+//     $('.childpara').remove();
+
+
+//  msg= $('#psuccess').data('psuccess');
+//  var  data="<p class='childpara'>"+msg+"</p>";
+
+//             $('#para').append(data);
+//             $('#m12').modal('show');
+// }
 // end of profile changed succfully
 
 // password change in admin panel

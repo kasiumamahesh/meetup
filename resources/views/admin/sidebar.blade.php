@@ -34,19 +34,19 @@
                 <li>
                     <a href="{{url('/users')}}"> <i class="menu-icon fa fa-user"></i>Users</a>
                 </li>
-                <li class="menu-item-has-children dropdown">
+               <!--  <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
                     <ul class="sub-menu children dropdown-menu">
                         <li><i class="menu-icon fa fa-sign-in"></i><a href="login.php">Login</a></li>
                         <li><i class="menu-icon fa fa-paper-plane"></i><a href="forgot-password.php">Forget Pass</a></li>
                     </ul>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{url('/paylist')}}"> <i class="menu-icon fa fa-money"></i>Payments</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="payment-list.php"> <i class="menu-icon ti-email"></i>Mails</a>
-                </li>
+                </li> -->
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
