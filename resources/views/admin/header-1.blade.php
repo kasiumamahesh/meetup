@@ -18,10 +18,10 @@
                     <div class="dropdown for-message">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="message" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="ti-email"></i>
-                            <span  id='mc'  class="count bg-primary"></span>
+                            <span  id='mc' class="count bg-primary"></span>
                         </button>
                         <div id="dynamicdata"
-            class="dropdown-menu" aria-labelledby="message">
+            class="dropdown-menu" aria-labelledby="message" style="width: 300px;">
                      <!--        <p class="red">You have 4 Mails</p>
                             <a class="dropdown-item media bg-flat-color-1" href="#">
                                 <span class="photo media-left"><img alt="avatar" src="{{asset('images1/avatar/1.jpg')}}"></span>

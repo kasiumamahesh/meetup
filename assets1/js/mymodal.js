@@ -14,17 +14,20 @@
                     dataType: "json",   //Expected data format from server
                     
                     success: function (result) {//On Successful service call
-                      var count = Object.keys(result).length;
+                       count = Object.keys(result).length;
                       //alert(count);
                    
                        $('#dynamicdata').empty();
                  $( '#mc').text(count);
+                // alert(count);
               
 
               
          if  (  $.isEmptyObject( result )){
-          // $('#mc').text('0');
-          
+          $('#mc').text(count);
+          data='<p> no unread mails</p>';
+           $('#dynamicdata').append(data);
+          //alert(data);
 
                    }
          else{     // $('#mc').append(count);

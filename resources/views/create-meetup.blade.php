@@ -17,19 +17,23 @@
                             <fieldset class="cm-current">
                                 <label>What's your new Group hometown?</label>
                                 <select class="form-control" name='city'>
-                                    <option selected="" value="4">Hyderabad</option>
-                                    <option value="1">Mumbai</option>
-                                    <option value="2">Chennai</option>
-                                    <option value="3">Bangalore</option>
+                                    
+                                   @foreach($locations as $location)
+                                    <option value="{{$location->id}}">{{$location->location_name}}</option>
+                                    @endforeach
+                                    
                                 </select>
                             </fieldset>
                             <fieldset class="next">
                                 <label>What will your Group be about?</label>
                                 <select class="form-control" name="cat[]" multiple>
-                                    <option selected="">Arts</option>
-                                    <option value="1">Book Clubs</option>
+
+                                    @foreach($cats as $cat)
+                                    <option  value="{{$cat->id}}">{{$cat->cat_name}}</option>
+                                    @endforeach
+                                    <!-- <option value="1">Book Clubs</option>
                                     <option value="2">Career & Business</option>
-                                    <option value="3">Dance</option>
+                                    <option value="3">Dance</option> -->
                                 </select>
                                 <p class="cm-note">*Note : Press ctrl to select multiple topics</p>
                             </fieldset>

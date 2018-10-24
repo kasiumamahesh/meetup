@@ -178,7 +178,7 @@
                         </div>
                     </div>
                     
-                    <div id="sent-mails" class="tab-pane fade show active" role="tabpanel">
+                    <div id="sent-mails" class="tab-pane fade" role="tabpanel">
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Sent Mails</strong>

@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// meetup customer panel
 //social logins
 
 Route::get('/fb','socialloginscontroller@fb');
@@ -29,12 +30,12 @@ Route::get('/list/{id}','groupcontroller@list' );
 
 Route::get('/test','logincontroller@test');
 Route::post('/register','registercontroller@register');
-Route::get('/userpage',function(){
-
-	return view('create-meetup');
-});
+Route::get('/userpage','registercontroller@registerpage');
 Route::post('/grpcreate','groupcontroller@store');
 Route::get('/groups','groupcontroller@groupsearch');
+Route::get('/createevent','groupcontroller@createevent');
+
+
 
 
 // Route::get('groups', function () {
@@ -50,9 +51,7 @@ Route::get('bestdeals', function () {
 Route::get('contact', function () {
     return view('contact');
 });
-//Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 //Auth::routes();
 

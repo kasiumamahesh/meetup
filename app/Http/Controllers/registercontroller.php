@@ -12,34 +12,19 @@ use DB;
 use Session;
 class registercontroller extends Controller
 {
-    //
-
-  public function testscript(){
-
-      
-$message=DB::table('message_tab')->get();
-
-return view('admin.test',["message"=>$message]);
-
-  }
-
+  
     public function register(Request $request){
 
 
-        // $validator = Validator::make($request->all(), [
-        //     'username' => 'required',
-        //      //'mobile' => 'required',
-        //      'email' => 'required|unique:users,email',
-        //     'password' => 'required|min:6'  ,
-        //      'confirm' => 'required|same:password',
-        //     ]);
-        $message="you succesfully regiester and login  with  your credentials";
+        $validator = Validator::make($request->all(), [
+            'username' => 'required',
+             //'mobile' => 'required',
+             'email' => 'required|unique:users,email',
+            'password' => 'required|min:6|confirmed'  ,
+             
+            ]);
+      
 
-    // if ($validator->fails()) {
-
-    //      return response()->json(["info"=>"registration failed",$validator->errors()]);
-    //     }
-        //Session::put('mes', $message);
         $pwd = Hash::make($request->password);
         $user=new User;
 
@@ -50,21 +35,26 @@ return view('admin.test',["message"=>$message]);
 
           $arr=["email"=>$user->email,"password"=>$user->password];
 
-    
-   //Auth::login($user);
-          if(Auth::attempt($arr))
-      
-{
-
-    echo "sucess";
-
-}
+Auth::attempt(["email"=>$user->email,"password"=>$request->password]);
 
 
-      return redirect('/userpage');
+
+      return redirect('/userpage')->with('regsuccess', 'registered successfully');
       
 
 
+
+    }
+    public function registerpage(){
+      if(Auth::check()){
+
+          $cats=DB::table('cat_tab')->get();
+          $locations=DB::table('location_tab')->get();
+          return view('create-meetup',["cats"=>$cats, "locations"=>$locations]);
+
+         }
+
+      return redirect('/');
 
     }
 }

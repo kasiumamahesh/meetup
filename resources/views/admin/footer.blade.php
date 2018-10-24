@@ -42,66 +42,7 @@
   $(document).ready(function(){
 //ajaxmail();
 setInterval(ajaxmail, 30000);
-    // base url
     
-    // alert(burl);
-
-    // ajax call get the unread mails
-   //  setInterval(ajaxmail, 300);
-
-   //   function ajaxmail()    {      
-   //    $.ajax({
-   //                  type: "GET",    //GET or POST or PUT or DELETE verb
-   //                  url: 'http://localhost/meetup/getmail',     // Location of the service
-   //                  data: "",     //Data sent to server
-                   
-   //                  dataType: "json",   //Expected data format from server
-                    
-   //                  success: function (result) {//On Successful service call
-   //                    var count = Object.keys(result).length;
-   //                   $('.dropdown-toggle #mc').text(count);
-   //                     $('#dynamicdata').empty();
-
-              
-   //       if  (  $.isEmptyObject( result )){
-   //         $('#mc').text('0');
-          
-
-   //                 }
-   //       else{     // $('#mc').append(count);
-
-   //           data1 = "<p class='red'>You have" +count+" Mails</p>";
-   //            $('#dynamicdata').append(data1);
-   //                    $.each(result, function(index, row) {
-                       
-
-   //                     var data=
-
-   //                      " <a class='dropdown-item media bg-flat-color-1' href='#'>"
-   //                       +   " <span class='photo media-left'><img alt='avatar'"+" src='"+"{{asset('images1/avatar/1.jpg')}}'"+"></span>"+
-   //                              "<span class='message media-body'>"+
-   //                               "<span class='name float-left text-white'>"+row.name+"</span>"
-   //                                 +"<span class='time float-right text-white'>"+row.time+"</span>"
-   //                                 +"<p class='text-light'>Hello, this is an example msg</p>"
-   //                            +"</span>"+
-   //                        " </a>"    ;                
-                     
- 
-   //                  $('#dynamicdata').append(data);
-
-                           
-   //                                                       });
-
-
-                                        
-        
-   //                  }}
-   //                  ,
-   //                  error: function() { //alert('error occured');
-
-   //                  } // When Service call fails
-   //              });
-   // }
 
 
     // add category message
@@ -343,19 +284,29 @@ var  data="<p class='childpara'>must pass the email field</p>";
 // begnning of compose mail successfully
 
 
-if( $('#fileupload').length >0) {
+// if( $('#fileupload').length >0) {
+//   $('.childpara').remove();
+
+
+//  msg= $('#fileupload').data('fileupload');
+//  var  data="<p class='childpara'>"+msg+"</p>";
+
+//             $('#para').append(data);
+//             $('#m12').modal('show');
+           
+ 
+
+// }
+@if(Session::has('fileupload'))
+   msg={!!json_encode(Session::get('fileupload'))!!};
   $('.childpara').remove();
 
-
- msg= $('#fileupload').data('fileupload');
  var  data="<p class='childpara'>"+msg+"</p>";
 
             $('#para').append(data);
             $('#m12').modal('show');
-           
- 
-
-}
+  
+  @endif
 // end of compose mail succfull
 
       $("#printbutton").click(function(){
@@ -519,24 +470,34 @@ if( $('#pwderror').length >0) {
 }
 
 //compose mail sucefully
-if( $('#mailsent').length>0){
+// if( $('#mailsent').length>0){
 
-     alert($('#mailsent').data('mailsent'));
-}
+//      alert($('#mailsent').data('mailsent'));
+// }
 //  mail move to trash
+@if(Session::has('trash'))
+  msg={!!json_encode(Session::get('trash'))!!};
+  $('.childpara').remove();
 
-if( $('#trash').length>0){
-
-     
- $('.childpara').remove();
-
-
- msg= $('#trash').data('trash');
  var  data="<p class='childpara'>"+msg+"</p>";
 
             $('#para').append(data);
             $('#m12').modal('show');
-}
+  
+  @endif
+
+// if( $('#trash').length>0){
+
+     
+//  $('.childpara').remove();
+
+
+//  msg= $('#trash').data('trash');
+//  var  data="<p class='childpara'>"+msg+"</p>";
+
+//             $('#para').append(data);
+//             $('#m12').modal('show');
+// }
 
 //  end of mail move
 //mail restore
@@ -551,35 +512,55 @@ if( $('#trash').length>0){
   
   @endif
 
-    //mail deleted permently   
+    //mail deleted permently  
+    @if(Session::has('msgdelete'))
+  msg={!!json_encode(Session::get('msgdelete'))!!};
+  $('.childpara').remove();
+
+ var  data="<p class='childpara'>"+msg+"</p>";
+
+            $('#para').append(data);
+            $('#m12').modal('show');
+  
+  @endif 
      
-if($('#msgdelete').length>0){
+// if($('#msgdelete').length>0){
 
         
- $('.childpara').remove();
+//  $('.childpara').remove();
 
 
- msg= $('#msgdelete').data('msgdelete');
- var  data="<p class='childpara'>"+msg+"</p>";
+//  msg= $('#msgdelete').data('msgdelete');
+//  var  data="<p class='childpara'>"+msg+"</p>";
 
-            $('#para').append(data);
-            $('#m12').modal('show');
-}
+//             $('#para').append(data);
+//             $('#m12').modal('show');
+// }
 // delete user
 
-if($('#udelete').length>0){
+// if($('#udelete').length>0){
 
- $('.childpara').remove();
+//  $('.childpara').remove();
 
 
- msg= $('#udelete').data('udelete');
+//  msg= $('#udelete').data('udelete');
+//  var  data="<p class='childpara'>"+msg+"</p>";
+
+//             $('#para').append(data);
+//             $('#m12').modal('show');
+
+   
+// }
+ @if(Session::has('udelete'))
+  msg={!!json_encode(Session::get('udelete'))!!};
+  $('.childpara').remove();
+
  var  data="<p class='childpara'>"+msg+"</p>";
 
             $('#para').append(data);
             $('#m12').modal('show');
-
-   
-}
+  
+  @endif 
 
 
 // you must enter requeird fields while profile changing

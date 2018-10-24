@@ -26,41 +26,37 @@ $users=DB::table('group_tab')->join('group_cat_tab', 'group_tab.id', '=', 'group
                              return view('group-listing',["users"=>$users]);
 
   }
-// public function  store(Request $request)
-// {
+public function  store(Request $request)
+{
 
-
+ if(Auth::check()){
             
- 
-//        $validator = Validator::make($request->all(), [
-//             'city' => 'required',
-//              'gname' => 'required',
-//               'cat.*' =>  'required',
+       $validator = Validator::make($request->all(), [
+            'city' => 'required',
+             'gname' => 'required',
+              'cat.*' =>  'required',
              
-//            ]);
-
- 
-
+           ]);
+       
+$id=Auth::id();
+$group_id=DB::table('group_tab')->insertGetId(['group_name'=>$request->gname,'created_by'=>$id,"location"=>$request->city]);
 
        
-//         $group_id=1;
-// $user=DB::table('group_tab')->insert(['group_name'=>$request->gname,'created_by'=>1]);
-
-       
-//      $cat=$request->cat;
+     $cat=$request->cat;
     
      
-//      foreach ($cat as $val) {
+     foreach ($cat as $val) {
       
-//       $arr[]=["group_id"=>$group_id,"cat_id"=>$val];
+      $arr[]=["group_id"=>$group_id,"cat_id"=>$val];
 
-//        }
+       }
 
 
-// DB::table("group_cat_tab")->insert($arr);
-// return redirect('/creategp');
+DB::table("group_cat_tab")->insert($arr);
+return redirect('/createevent');
+}
 
-// }
+}
 // public function groups()
 // {
  

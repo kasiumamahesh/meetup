@@ -88,14 +88,17 @@
                     <!-- basic-contact - end -->
 
                     <!-- register-login-group - start -->
+                     @if(!(Auth::check()))
                     <div class="col-lg-6">
                         <div class="register-login-group">
                             <ul>
                                 <li>
+                                    @if(!(Auth::check()))
                                     <a href="#register-modal" class="register-modal-btn">
                                         <i class="fas fa-user-plus"></i>
                                         SignUp
                                     </a>
+                                    @endif
                                     <div id="register-modal" class="reglog-modal-wrapper register-modal mfp-hide clearfix" style="background-image: {{asset('assets/images/login-modal-bg.jpg')}};">
                                         <div class="overlay-black clearfix">
 
@@ -127,16 +130,16 @@
                                                     <form action="{{url('register')}}" method="post">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                         <div class="form-item">
-                                                            <input type="text" placeholder="User Name" name='username'>
+                                                            <input type="text" placeholder="User Name" name='username' required>
                                                         </div>
                                                         <div class="form-item">
-                                                            <input type="password" placeholder="Password" name='password'>
+                                                            <input type="password" placeholder="Password" name='password' required>
                                                         </div>
                                                         <div class="form-item">
-                                                            <input type="password" placeholder="Repeat Password" name='confirm'>
+                                                            <input type="password" placeholder="Repeat Password" name='password_confirmation' required>
                                                         </div>
                                                         <div class="form-item">
-                                                            <input type="email" placeholder="Email Address" name='email'>
+                                                            <input type="email" placeholder="Email Address" name='email' required>
                                                         </div>
                                                         
                                                         <button type="submit" class="login-btn">Register Now</button>
@@ -160,11 +163,13 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li>
+                                <li> 
+                                    @if(!(Auth::check()))
                                     <a href="#login-modal" class="login-modal-btn">
                                         <i class="fas fa-sign-in-alt"></i>
                                         Login
                                     </a>
+                                    @endif
                                     <div id="login-modal" class="reglog-modal-wrapper mfp-hide clearfix" style="background-image: {{asset('assets/images/login-modal-bg.jpg')}};">
                                         <div class="overlay-black clearfix">
 
@@ -239,6 +244,7 @@
                             </ul>
                         </div>
                     </div>
+                    @endif
                     <!-- register-login-group - end -->
 
                 </div>
@@ -846,26 +852,11 @@
 
         <!-- custom jquery include -->
         <script src="{{asset('assets/js/custom.js')}}"></script>
-<!-- <script type="text/javascript">        
-$("form").submit(function(){
-    alert('form submitted');
-
-var data = $("#signup").serialize();
-return true;
-});
-
-</script>
- -->
-
- <!-- <script type="text/javascript">
-$(document).ready(function () {
-
-    $( "#button1" ).click(function() {
-         console.log('ok');
-        $( "#form" ).submit();
-    });
-});
-</script> -->
+        <script type="text/javascript">
+            @if(Session::has('regsuccess'))
+            alert('login succefully');
+            @endif
+        </script>
 
 
     </body>

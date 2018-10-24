@@ -30,7 +30,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="categories-list.php" class="btn btn-sm btn-info">
+                        <a href="{{url('/catlist')}}" class="btn btn-sm btn-info">
                             <i class="fa fa-chevron-left"></i>
                         </a>
                         <strong class="card-title">Edit Category</strong>
